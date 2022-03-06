@@ -1,12 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-import { useState } from 'react';
-import { AppShell, Burger, Header, MediaQuery, Navbar, Text, useMantineTheme } from '@mantine/core';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState } from "react";
+import { AiOutlineCloud } from "react-icons/ai";
+import {
+  AppShell,
+  Burger,
+  Col,
+  Grid,
+  Group,
+  Header,
+  MediaQuery,
+  Navbar,
+  Text,
+  useMantineTheme,
+} from "@mantine/core";
 function App() {
-
   const [opened, setOpened] = useState(false);
   const theme = useMantineTheme();
-
 
   return (
     <AppShell
@@ -25,16 +35,28 @@ function App() {
           // viewport size > theme.breakpoints.sm – width is 300px
           // viewport size > theme.breakpoints.lg – width is 400px
           width={{ sm: 100, lg: 100 }}
-          sx={{backgroundColor:'red'}}
+          sx={{ backgroundColor: "red" }}
         >
-          <Text>Application navbar</Text>
+          {/* <Text>Application navbar</Text> */}
+          {/* <Grid>
+            <Col sx={{backgroundColor:'palegoldenrod'}} span={12}>
+            </Col>
+          </Grid> */}
+          <Group direction="column" position="center">
+            <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+              <AiOutlineCloud size="30" />
+              <Text size='xs'>Now</Text>
+            </div>
+          </Group>
         </Navbar>
       }
       header={
         <Header height={70} padding="md">
           {/* Handle other responsive styles with MediaQuery component or createStyles function */}
-          <div style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
-            <MediaQuery largerThan="xs" styles={{ display: 'none' }}>
+          <div
+            style={{ display: "flex", alignItems: "center", height: "100%" }}
+          >
+            <MediaQuery largerThan="xs" styles={{ display: "none" }}>
               <Burger
                 opened={opened}
                 onClick={() => setOpened((o) => !o)}
@@ -48,9 +70,9 @@ function App() {
           </div>
         </Header>
       }
-  >
-         <Text>Application content</Text>
-  </AppShell>
+    >
+      <Text>Application content</Text>
+    </AppShell>
   );
 }
 
