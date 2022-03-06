@@ -7,6 +7,7 @@ import {
   AppShell,
   Burger,
   Col,
+  Container,
   Grid,
   Group,
   Header,
@@ -109,7 +110,9 @@ function App() {
         </Header>
       }
     >
+       <Container fluid>
       <Home />
+       </Container>
     </AppShell>
   );
 }
