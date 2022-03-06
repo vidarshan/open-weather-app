@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { MantineProvider } from '@mantine/core';
 
 ReactDOM.render(
-  <MantineProvider>
+  <MantineProvider theme={{ colorScheme: 'dark' }} withGlobalStyles>
   <React.StrictMode>
     <App />
   </React.StrictMode>
