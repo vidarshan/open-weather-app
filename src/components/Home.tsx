@@ -15,17 +15,25 @@ const Home = () => {
   }, []);
 
   return (
-     
-    <Grid >
-      <Group direction="column">
-        <Group>
-          <AiOutlineCloud size="30" />
-          <Title order={1}>28 °C</Title>
+    <Grid>
+      <Col span={12}>
+        <Group direction="column">
+          <Group>
+            <Title order={1}>28 °C</Title>
+            <AiOutlineCloud size="30" />
+          </Group>
+          <Text size="xl" weight={700}>
+            Colombo, Sri Lanka
+          </Text>
         </Group>
-        <Text size="xl" weight={700}>
-          Colombo, Sri Lanka
-        </Text>
-      </Group>
+      </Col>
+
+      <Col span={12}>
+        <Text size="sm">Feels like 28 °C</Text>
+      </Col>
+      <Col span={12}>
+        <Text size="sm">Feels like 28 °C</Text>
+      </Col>
     </Grid>
   );
 };
