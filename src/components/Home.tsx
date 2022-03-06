@@ -1,4 +1,4 @@
-import { Col, Grid, Text } from "@mantine/core";
+import { Col, Grid, Group, Text, Title } from "@mantine/core";
 import { AiOutlineCloud } from "react-icons/ai";
 import React, { useEffect } from "react";
 
@@ -16,13 +16,15 @@ const Home = () => {
     },[])
 
   return (
-    <Grid>
-      <Col>
-        <AiOutlineCloud />
-      </Col>
-      <Col>
-        <Text>28 °C</Text>
-      </Col>
+    <Grid sx={{backgroundColor:'red'}}>
+   
+     
+      <Group direction="column">
+      <Title order={1}>28 °C</Title>
+     
+        <Text size="xl" weight={700}>Colombo, Sri Lanka</Text>
+      </Group>
+      
     </Grid>
   );
 };

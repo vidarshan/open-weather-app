@@ -10,6 +10,12 @@ body,
 nav,
 .mantine-Navbar-root .mantine-Navbar-hidden .mantine-fqk34n,
 .mantine-Text-root .mantine-1cau8qt,
-div {
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Manrope", sans-serif !important;
 }
