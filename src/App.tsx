@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
-import { AiOutlineCloud } from "react-icons/ai";
-import {RiSunLine, RiMoonLine} from 'react-icons/ri';
+import { AiOutlineCalendar, AiOutlineCloud, AiOutlineFieldTime } from "react-icons/ai";
+import { RiSunLine, RiMoonLine } from "react-icons/ri";
 import {
   AppShell,
   Burger,
@@ -16,6 +16,7 @@ import {
   Text,
   useMantineTheme,
 } from "@mantine/core";
+import Home from "./components/Home";
 function App() {
   const [opened, setOpened] = useState(false);
   const theme = useMantineTheme();
@@ -30,20 +31,62 @@ function App() {
           hiddenBreakpoint="sm"
           hidden={!opened}
           width={{ sm: 100, lg: 100 }}
-         
         >
           <Group direction="column" position="center">
-            <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center", 
+                marginBottom:'1rem'
+              }}
+            >
               <AiOutlineCloud size="30" />
-              <Text weight={600} size='xs'>Now</Text>
+              <Text weight={600} size="xs">
+                Now
+              </Text>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom:'1rem'
+              }}
+            >
+              <AiOutlineFieldTime size="30" />
+              <Text weight={600} size="xs">
+                Hourly
+              </Text>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom:'1rem'
+              }}
+            >
+              <AiOutlineCalendar size="30" />
+              <Text weight={600} size="xs">
+                Daily
+              </Text>
             </div>
           </Group>
         </Navbar>
       }
       header={
-        <Header height={70} padding="md" >
+        <Header height={70} padding="md">
           <div
-            style={{ display: "flex", alignItems: "center", height: "100%", justifyContent:'space-between' }}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              height: "100%",
+              justifyContent: "space-between",
+            }}
           >
             <MediaQuery largerThan="xs" styles={{ display: "none" }}>
               <Burger
@@ -55,18 +98,18 @@ function App() {
               />
             </MediaQuery>
             <MediaQuery smallerThan="xs" styles={{ display: "none" }}>
-            <Text weight={600}>Open Weather</Text>
+              <Text weight={600}>Open Weather</Text>
             </MediaQuery>
             <Group>
-            <RiSunLine/>
-            <Switch color='yellow'  />
-<RiMoonLine/>
+              <RiSunLine />
+              <Switch color="yellow" />
+              <RiMoonLine />
             </Group>
           </div>
         </Header>
       }
     >
-      <Text>Application content</Text>
+      <Home />
     </AppShell>
   );
 }
