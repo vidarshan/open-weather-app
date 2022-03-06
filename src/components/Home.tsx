@@ -34,9 +34,18 @@ const Home = () => {
       <Col span={12}>
         <Text size="sm">Feels like 28 °C</Text>
       </Col>
-      <Col span={12}>
+      <Col span={4}>
+        <InfoCard title="Sunrise" icon={<AiOutlineCloud />} />
+      </Col>
+      <Col span={4}>
+        <InfoCard title="Sunset" icon={<AiOutlineCloud />} />
+      </Col>
+      {/* <Col span={4}>
         <InfoCard />
       </Col>
+      <Col span={4}>
+        <InfoCard />
+      </Col> */}
     </Grid>
   );
 };
