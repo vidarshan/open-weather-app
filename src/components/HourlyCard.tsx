@@ -1,4 +1,4 @@
-import { Card, Col, Text } from "@mantine/core";
+import { Card, Col, Divider, Group, Text } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
 import { timestampToDateTime } from "../utils/util";
 
@@ -13,7 +13,14 @@ const HourlyCard: React.FC<PropsWithChildren<IHourlyCard>> = ({
 }) => {
   return (
     <Card>
-      <Text>{timestampToDateTime(dt)}</Text> <Text>{precipitation}</Text>
+      <Text align="left" size="sm" weight={500}>
+        {timestampToDateTime(dt)}
+      </Text>
+
+      <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
+        <Text weight={700}>Precipitation</Text>
+        <Text weight={700}>{precipitation}</Text>
+      </Group>
     </Card>
   );
 };

@@ -109,13 +109,14 @@ const Home = () => {
 
       <Col span={12}>
         <Grid>
-          {weather.minutely.map((item: any) => {
-            console.log(item);
-            return (
-              <Col span={3}>
-                <HourlyCard dt={item.dt} precipitation={item.precipitation} />
-              </Col>
-            );
+          {weather.minutely.map((item: any, key: number) => {
+            if (key % 5 === 0) {
+              return (
+                <Col span={3}>
+                  <HourlyCard dt={item.dt} precipitation={item.precipitation} />
+                </Col>
+              );
+            }
           })}
         </Grid>
       </Col>
