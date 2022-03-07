@@ -1,5 +1,6 @@
 import { Card, Col, Text } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
+import { timestampToDateTime } from "../utils/util";
 
 interface IHourlyCard {
   dt: number;
@@ -12,7 +13,7 @@ const HourlyCard: React.FC<PropsWithChildren<IHourlyCard>> = ({
 }) => {
   return (
     <Card>
-      <Text>{dt}</Text> <Text>{precipitation}</Text>
+      <Text>{timestampToDateTime(dt)}</Text> <Text>{precipitation}</Text>
     </Card>
   );
 };
