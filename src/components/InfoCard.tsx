@@ -2,11 +2,11 @@ import { Card, Divider, Group, Text } from "@mantine/core";
 import moment from "moment";
 import React, { PropsWithChildren } from "react";
 
-interface IProjectCard {
+interface IInfoCard {
   items: Array<any>;
 }
 
-const InfoCard: React.FC<PropsWithChildren<IProjectCard>> = ({ items }) => {
+const InfoCard: React.FC<PropsWithChildren<IInfoCard>> = ({ items }) => {
   return (
     <Card withBorder>
       <Group position="apart">

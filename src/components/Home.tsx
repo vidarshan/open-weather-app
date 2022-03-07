@@ -19,6 +19,11 @@ import { actionCreators, State } from "../state";
 
 const Home = () => {
   const dispatch = useDispatch();
+
+  const { weather, loading, error } = useSelector(
+    (state: State) => state.weather
+  );
+
   const { getWeather } = bindActionCreators(actionCreators, dispatch);
 
   const weatherItems = [
@@ -104,10 +109,10 @@ const Home = () => {
 
       <Col span={12}>
         <Grid>
-          {weatherItems.map((items: any) => {
+          {weather.minutely.map((item: any) => {
             return (
               <Col span={3}>
-                <HourlyCard />
+                <HourlyCard dt={item.dt} precipitation={item.precipitation} />
               </Col>
             );
           })}
