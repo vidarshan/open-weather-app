@@ -12,6 +12,7 @@ import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 import React, { useEffect } from "react";
 import InfoCard from "./InfoCard";
+import HourlyCard from "./HourlyCard";
 
 const Home = () => {
   const weatherItems = [
@@ -39,7 +40,7 @@ const Home = () => {
   return (
     <Grid>
       <Col span={12}>
-        <Grid sx={{ marginBottom: "1rem" }}>
+        <Grid sx={{ margin: "1rem 0" }}>
           <Col span={5}>
             <Card
               sx={{
@@ -95,8 +96,17 @@ const Home = () => {
         </Grid>
         <Divider />
       </Col>
+
       <Col span={12}>
-        <InfoCard items={weatherItems} />
+        <Grid>
+          {weatherItems.map((items: any) => {
+            return (
+              <Col span={3}>
+                <HourlyCard />
+              </Col>
+            );
+          })}
+        </Grid>
       </Col>
     </Grid>
   );
