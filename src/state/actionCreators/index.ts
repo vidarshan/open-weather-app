@@ -4,7 +4,7 @@ import { Action } from "../actions/index";
 import { store } from "../store";
 import axios from "axios";
 
-export const getWeather = (latitude: string, longitude:string) => {
+export const getWeather = (latitude: number, longitude:number) => {
 
     const url = process.env.REACT_APP_OPEN_WEATHER_URL;
     const key = process.env.REACT_APP_OPEN_WEATHER_KEY;

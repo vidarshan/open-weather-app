@@ -13,8 +13,14 @@ import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 import React, { useEffect } from "react";
 import InfoCard from "./InfoCard";
 import HourlyCard from "./HourlyCard";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "redux";
+import { actionCreators, State } from "../state";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const { getWeather } = bindActionCreators(actionCreators, dispatch);
+
   const weatherItems = [
     { id: 1, title: "UV Index", icon: <RiSunLine /> },
     { id: 2, title: "Humidity", icon: <RiDropLine /> },
@@ -29,8 +35,7 @@ const Home = () => {
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        console.log("Latitude is :", position.coords.latitude);
-        console.log("Longitude is :", position.coords.longitude);
+        getWeather(position.coords.latitude, position.coords.longitude);
       });
     } else {
       console.log("Not Available");
