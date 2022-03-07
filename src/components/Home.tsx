@@ -29,11 +29,15 @@ const Home = () => {
             </Card>
           </Col>
           <Col span={9}>
-            <Card sx={{ height: "100%" }}>
-              <Group>
+            <Card
+              sx={{
+                height: "100%",
+              }}
+            >
+              <Group direction="row" position="left">
                 <AiOutlineCloud size="30" />
                 <div>
-                  <Title order={5}>Clear</Title>
+                  <Title order={1}>Clear</Title>
                   <Text size="xl" weight={700}>
                     Clear Sky
                   </Text>
