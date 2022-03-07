@@ -2,7 +2,7 @@ import { ActionType } from "../actionTypes";
 
 interface WeatherGetRequest {
     type: ActionType.GET_WEATHER_REQUEST;
-    payload: any;
+    payload?: any;
   }
 
   interface WeatherGetSuccess {
