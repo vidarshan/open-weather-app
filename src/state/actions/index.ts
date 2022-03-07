@@ -14,3 +14,6 @@ interface WeatherGetRequest {
     type: ActionType.GET_WEATHER_FAIL;
     payload: any;
   }
+
+  export type Action =
+  | WeatherGetRequest | WeatherGetSuccess | WeatherGetFail;
