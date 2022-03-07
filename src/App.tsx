@@ -1,14 +1,16 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
-import { AiOutlineCalendar, AiOutlineCloud, AiOutlineFieldTime } from "react-icons/ai";
+import {
+  AiOutlineCalendar,
+  AiOutlineCloud,
+  AiOutlineEllipsis,
+  AiOutlineFieldTime,
+} from "react-icons/ai";
 import { RiSunLine, RiMoonLine } from "react-icons/ri";
 import {
   AppShell,
   Burger,
-  Col,
   Container,
-  Grid,
   Group,
   Header,
   MediaQuery,
@@ -39,8 +41,8 @@ function App() {
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                alignItems: "center", 
-                marginBottom:'1rem'
+                alignItems: "center",
+                marginBottom: "1rem",
               }}
             >
               <AiOutlineCloud size="30" />
@@ -54,7 +56,7 @@ function App() {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                marginBottom:'1rem'
+                marginBottom: "1rem",
               }}
             >
               <AiOutlineFieldTime size="30" />
@@ -68,12 +70,26 @@ function App() {
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
-                marginBottom:'1rem'
+                marginBottom: "1rem",
               }}
             >
               <AiOutlineCalendar size="30" />
               <Text weight={600} size="xs">
                 Daily
+              </Text>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                marginBottom: "1rem",
+              }}
+            >
+              <AiOutlineEllipsis size="30" />
+              <Text weight={600} size="xs">
+                Settings
               </Text>
             </div>
           </Group>
@@ -110,9 +126,9 @@ function App() {
         </Header>
       }
     >
-       <Container fluid>
-      <Home />
-       </Container>
+      <Container fluid>
+        <Home />
+      </Container>
     </AppShell>
   );
 }
