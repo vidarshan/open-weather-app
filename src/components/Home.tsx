@@ -1,4 +1,13 @@
-import { Card, Col, Divider, Grid, Group, Text, Title } from "@mantine/core";
+import {
+  Card,
+  Col,
+  Container,
+  Divider,
+  Grid,
+  Group,
+  Text,
+  Title,
+} from "@mantine/core";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 import React, { useEffect } from "react";
@@ -31,60 +40,64 @@ const Home = () => {
     <Grid>
       <Col span={12}>
         <Grid sx={{ marginBottom: "1rem" }}>
-          <Col span={3}>
-            <Card>
-              <Title order={1}>28 °C</Title>
-              <Text size="xl" weight={700}>
-                Colombo, Sri Lanka
-              </Text>
-            </Card>
-          </Col>
-          <Col span={9}>
+          <Col span={5}>
             <Card
               sx={{
                 height: "100%",
               }}
             >
-              <Group direction="row" position="left">
-                <AiOutlineCloud size="30" />
-                <div>
-                  <Title order={1}>Clear</Title>
-                  <Text size="xl" weight={700}>
-                    Clear Sky
-                  </Text>
-                </div>
-              </Group>
+              <AiOutlineCloud size="30" />
+              <Title order={1}>28 °C</Title>
+              <Text size="md" weight={700}>
+                Scattered Clouds
+              </Text>
+              <Text size="xl" weight={700}>
+                Colombo, Sri Lanka
+              </Text>
+            </Card>
+          </Col>
+          <Col span={7}>
+            <Card
+              sx={{
+                height: "100%",
+              }}
+            >
+              {weatherItems.map((item: any) => {
+                return (
+                  <Grid
+                    sx={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Col span={2}>
+                      <Group>
+                        {item.icon}
+                        <Text size="sm" weight={600}>
+                          {item.title}
+                        </Text>
+                      </Group>
+                    </Col>
+                    <Col span={9}>
+                      <Divider variant="dashed" />
+                    </Col>
+                    <Col span={1}>
+                      <Text align="right" size="sm" weight={600}>
+                        36.0
+                      </Text>
+                    </Col>
+                  </Grid>
+                );
+              })}
             </Card>
           </Col>
         </Grid>
-        {/* <Group direction="row" position="left">
-          <Card>
-            <RiMoonFill />
-            <Text>Clear</Text>
-            <Text>Clear Sky</Text>
-          </Card>
-        </Group> <Group direction="row" position="left">
-          <Card>
-            <RiMoonFill />
-            <Text>Clear</Text>
-            <Text>Clear Sky</Text>
-          </Card>
-        </Group> */}
         <Divider />
       </Col>
-      {/* <Col span={12}>
-        <InfoCard title="Feels like 28 °C" icon={<RiSunLine />} />
-      </Col> */}
       <Col span={12}>
         <InfoCard items={weatherItems} />
       </Col>
-
-      {/* <Col span={4}>
-        <InfoCard />
-      </Col>
-      <Col span={4}>
-        <InfoCard />
-      </Col> */}
     </Grid>
   );
 };
