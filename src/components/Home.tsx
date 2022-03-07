@@ -1,10 +1,21 @@
-import { Card, Col, Grid, Group, Text, Title } from "@mantine/core";
+import { Card, Col, Divider, Grid, Group, Text, Title } from "@mantine/core";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 import React, { useEffect } from "react";
 import InfoCard from "./InfoCard";
 
 const Home = () => {
+  const weatherItems = [
+    { id: 1, title: "UV Index", icon: <RiSunLine /> },
+    { id: 2, title: "Humidity", icon: <RiDropLine /> },
+    { id: 3, title: "Clouds", icon: <AiOutlineCloud /> },
+    { id: 4, title: "Visibility", icon: <AiOutlineEye /> },
+    { id: 5, title: "Wind", icon: <RiCloudWindyLine /> },
+    { id: 6, title: "Pressure", icon: <AiOutlineCloud /> },
+    { id: 7, title: "Sunrise", icon: <AiOutlineCloud /> },
+    { id: 8, title: "Sunset", icon: <AiOutlineCloud /> },
+  ];
+
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function (position) {
@@ -19,7 +30,7 @@ const Home = () => {
   return (
     <Grid>
       <Col span={12}>
-        <Grid sx={{ marginBottom: "2rem" }}>
+        <Grid sx={{ marginBottom: "1rem" }}>
           <Col span={3}>
             <Card>
               <Title order={1}>28 °C</Title>
@@ -59,35 +70,15 @@ const Home = () => {
             <Text>Clear Sky</Text>
           </Card>
         </Group> */}
+        <Divider />
       </Col>
-
       {/* <Col span={12}>
         <InfoCard title="Feels like 28 °C" icon={<RiSunLine />} />
       </Col> */}
-      <Col span={4}>
-        <InfoCard title="UV Index" icon={<RiSunLine />} />
+      <Col span={12}>
+        <InfoCard items={weatherItems} />
       </Col>
-      <Col span={4}>
-        <InfoCard title="Humidity" icon={<RiDropLine />} />
-      </Col>
-      <Col span={4}>
-        <InfoCard title="Clouds" icon={<AiOutlineCloud />} />
-      </Col>
-      <Col span={4}>
-        <InfoCard title="Visibility" icon={<AiOutlineEye />} />
-      </Col>
-      <Col span={4}>
-        <InfoCard title="Wind" icon={<RiCloudWindyLine />} />
-      </Col>
-      <Col span={4}>
-        <InfoCard title="Pressure" icon={<AiOutlineCloud />} />
-      </Col>
-      <Col span={4}>
-        <InfoCard title="Sunrise" icon={<AiOutlineCloud />} />
-      </Col>
-      <Col span={4}>
-        <InfoCard title="Sunset" icon={<AiOutlineCloud />} />
-      </Col>
+
       {/* <Col span={4}>
         <InfoCard />
       </Col>
