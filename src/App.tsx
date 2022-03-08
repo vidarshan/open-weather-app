@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   AiOutlineCalendar,
   AiOutlineCloud,
@@ -24,9 +24,42 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 import Home from "./components/Home";
+import { useDispatch, useSelector } from "react-redux";
+import { actionCreators, State } from "./state";
+import { bindActionCreators } from "redux";
 function App() {
+  const dispatch = useDispatch();
+
+  const {
+    geolocation: geoLocationResult,
+    loading,
+    error,
+  } = useSelector((state: State) => state.geolocation);
+
+  const { getGeolocation, getWeather } = bindActionCreators(
+    actionCreators,
+    dispatch
+  );
+
   const [opened, setOpened] = useState(false);
+  const [geolocation, setGeolocation] = useState("");
   const theme = useMantineTheme();
+
+  const handlerSearchGeolocation = () => {
+    getGeolocation(geolocation);
+  };
+
+  useEffect(() => {
+    if (
+      Object.keys(geoLocationResult).includes("data") &&
+      geoLocationResult.data.length
+    ) {
+      getWeather(
+        geoLocationResult.data[0].latitude,
+        geoLocationResult.data[0].longitude
+      );
+    }
+  }, [geoLocationResult]);
 
   return (
     <AppShell
@@ -126,8 +159,17 @@ function App() {
             </MediaQuery>
             <MediaQuery smallerThan="xs" styles={{ display: "none" }}>
               <Group>
-                <TextInput placeholder="Search for a location" />
-                <ActionIcon variant="filled" size="lg">
+                <TextInput
+                  placeholder="Search for a location"
+                  onChange={(e) => setGeolocation(e.target.value)}
+                />
+                <ActionIcon
+                  loading={loading}
+                  disabled={loading}
+                  variant="filled"
+                  size="lg"
+                  onClick={() => handlerSearchGeolocation()}
+                >
                   <AiOutlineSearch />
                 </ActionIcon>
               </Group>

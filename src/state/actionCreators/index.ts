@@ -39,9 +39,7 @@ export const getWeather = (latitude: number, longitude:number) => {
           type: ActionType.GEOLOCATION_REQUEST,
         });
   
-        const { data } = await axios.get(`http://api.positionstack.com/v1/forward
-        ? access_key = ${key}
-        & query = ${location}`);
+        const { data } = await axios.get(`http://api.positionstack.com/v1/forward?access_key=${key}&query=${location}`);
   
         dispatch({
           type: ActionType.GEOLOCATION_SUCCESS,
