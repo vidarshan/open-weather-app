@@ -19,3 +19,8 @@ h5,
 h6 {
   font-family: "Manrope", sans-serif !important;
 }
+
+input {
+  font-weight: 500 !important;
+  font-family: "Manrope", sans-serif !important;
+}

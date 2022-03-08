@@ -1,4 +1,4 @@
-import { Card, Col, Divider, Group, Text } from "@mantine/core";
+import { Card, Group, Text } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
 import { timestampToDateTime } from "../utils/util";
 

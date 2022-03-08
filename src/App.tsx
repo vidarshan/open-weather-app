@@ -5,11 +5,14 @@ import {
   AiOutlineCloud,
   AiOutlineEllipsis,
   AiOutlineFieldTime,
+  AiOutlineSearch,
 } from "react-icons/ai";
 import { RiSunLine, RiMoonLine } from "react-icons/ri";
 import {
+  ActionIcon,
   AppShell,
   Burger,
+  Button,
   Container,
   Group,
   Header,
@@ -17,6 +20,7 @@ import {
   Navbar,
   Switch,
   Text,
+  TextInput,
   useMantineTheme,
 } from "@mantine/core";
 import Home from "./components/Home";
@@ -87,6 +91,9 @@ function App() {
                 marginBottom: "1rem",
               }}
             >
+              <MediaQuery largerThan="xs" styles={{ display: "none" }}>
+                <TextInput placeholder="Search for a location" />
+              </MediaQuery>
               <AiOutlineEllipsis size="30" />
               <Text weight={600} size="xs">
                 Settings
@@ -116,6 +123,14 @@ function App() {
             </MediaQuery>
             <MediaQuery smallerThan="xs" styles={{ display: "none" }}>
               <Text weight={600}>Open Weather</Text>
+            </MediaQuery>
+            <MediaQuery smallerThan="xs" styles={{ display: "none" }}>
+              <Group>
+                <TextInput placeholder="Search for a location" />
+                <ActionIcon variant="filled" size="lg">
+                  <AiOutlineSearch />
+                </ActionIcon>
+              </Group>
             </MediaQuery>
             <Group>
               <RiSunLine />
