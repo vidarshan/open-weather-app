@@ -1,20 +1,26 @@
-import { Card, Group, Text } from "@mantine/core";
+import { Card, Divider, Group, Text } from "@mantine/core";
 import moment from "moment";
 import React, { PropsWithChildren } from "react";
 
-interface IProjectCard {
-  title: string;
-  icon: any;
+interface IInfoCard {
+  items: Array<any>;
 }
 
-const InfoCard: React.FC<PropsWithChildren<IProjectCard>> = ({
-  title,
-  icon,
-}) => {
+const InfoCard: React.FC<PropsWithChildren<IInfoCard>> = ({ items }) => {
   return (
     <Card withBorder>
       <Group position="apart">
-        <div
+        {items.map((item: any) => {
+          return (
+            <div>
+              {item.icon}
+              <Text size="xs" weight={600}>
+                {item.title}
+              </Text>
+            </div>
+          );
+        })}
+        {/* <div
           style={{
             display: "flex",
             flexDirection: "row",
@@ -25,10 +31,10 @@ const InfoCard: React.FC<PropsWithChildren<IProjectCard>> = ({
           <Text weight={600} sx={{ marginLeft: "10px" }}>
             {title}
           </Text>
-        </div>
-        <Text weight={600} sx={{ marginLeft: "10px" }}>
-          {moment.unix(1646571158).format("hh:mm A")}
-        </Text>
+        </div> */}
+        {/* <Text weight={600} sx={{ marginLeft: "10px" }}>
+          {moment.unix(1646658840).format("hh:mm A")}
+        </Text> */}
       </Group>
     </Card>
   );
