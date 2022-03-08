@@ -1,7 +1,8 @@
 import { Card, Col, Divider, Grid, Group, Text, Title } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
-
+import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
+import { timestampToDateTime } from "../utils/util";
 interface IWeatherCard {
   items: any;
 }
@@ -31,7 +32,128 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
             height: "100%",
           }}
         >
-          {items.map((item: any) => {
+          <Grid
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+            }}
+          >
+            <Col span={2}>
+              <Group>
+                <RiSunLine />
+                <Text size="sm" weight={600}>
+                  UV Index
+                </Text>
+              </Group>
+            </Col>
+            <Col span={9}>
+              <Divider variant="dashed" />
+            </Col>
+            <Col span={1}>
+              <Text align="right" size="sm" weight={600}>
+                {items.uvi}
+              </Text>
+            </Col>
+            <Col span={2}>
+              <Group>
+                <RiDropLine />
+                <Text size="sm" weight={600}>
+                  Humidity
+                </Text>
+              </Group>
+            </Col>
+            <Col span={9}>
+              <Divider variant="dashed" />
+            </Col>
+            <Col span={1}>
+              <Text align="right" size="sm" weight={600}>
+                {items.humidity}
+              </Text>
+            </Col>
+            <Col span={2}>
+              <Group>
+                <AiOutlineCloud />
+                <Text size="sm" weight={600}>
+                  Clouds
+                </Text>
+              </Group>
+            </Col>
+            <Col span={9}>
+              <Divider variant="dashed" />
+            </Col>
+            <Col span={1}>
+              <Text align="right" size="sm" weight={600}>
+                {items.clouds}
+              </Text>
+            </Col>
+            <Col span={2}>
+              <Group>
+                <AiOutlineEye />
+                <Text size="sm" weight={600}>
+                  Visibility
+                </Text>
+              </Group>
+            </Col>
+            <Col span={9}>
+              <Divider variant="dashed" />
+            </Col>
+            <Col span={1}>
+              <Text align="right" size="sm" weight={600}>
+                {items.visibility}
+              </Text>
+            </Col>
+            <Col span={2}>
+              <Group>
+                <RiCloudWindyLine />
+                <Text size="sm" weight={600}>
+                  Wind
+                </Text>
+              </Group>
+            </Col>
+            <Col span={9}>
+              <Divider variant="dashed" />
+            </Col>
+            <Col span={1}>
+              <Text align="right" size="sm" weight={600}>
+                {items.wind_speed}
+              </Text>
+            </Col>
+
+            <Col span={2}>
+              <Group>
+                <AiOutlineCloud />
+                <Text size="sm" weight={600}>
+                  Sunrise
+                </Text>
+              </Group>
+            </Col>
+            <Col span={9}>
+              <Divider variant="dashed" />
+            </Col>
+            <Col span={1}>
+              <Text align="right" size="sm" weight={600}>
+                {timestampToDateTime(items.sunrise)}
+              </Text>
+            </Col>
+            <Col span={2}>
+              <Group>
+                <AiOutlineCloud />
+                <Text size="sm" weight={600}>
+                  Sunset
+                </Text>
+              </Group>
+            </Col>
+            <Col span={9}>
+              <Divider variant="dashed" />
+            </Col>
+            <Col span={1}>
+              <Text align="right" size="sm" weight={600}>
+                {timestampToDateTime(items.sunset)}
+              </Text>
+            </Col>
+          </Grid>
+          {/* {items.map((item: any) => {
             return (
               <Grid
                 sx={{
@@ -58,7 +180,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
                 </Col>
               </Grid>
             );
-          })}
+          })} */}
         </Card>
       </Col>
     </Grid>

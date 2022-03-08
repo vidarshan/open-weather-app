@@ -43,7 +43,7 @@ const Home = () => {
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        //getWeather(position.coords.latitude, position.coords.longitude);
+        getWeather(position.coords.latitude, position.coords.longitude);
       });
     } else {
       console.log("Not Available");
@@ -57,7 +57,7 @@ const Home = () => {
       ) : (
         <Grid>
           <Col span={12}>
-            <WeatherCard items={weatherItems} />
+            <WeatherCard items={weather.current} />
             <Divider />
           </Col>
 
