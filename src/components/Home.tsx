@@ -18,6 +18,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators, State } from "../state";
 import WeatherCard from "./WeatherCard";
+import Spinner from "./Spinner";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -42,7 +43,7 @@ const Home = () => {
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        // getWeather(position.coords.latitude, position.coords.longitude);
+        //getWeather(position.coords.latitude, position.coords.longitude);
       });
     } else {
       console.log("Not Available");
@@ -50,15 +51,19 @@ const Home = () => {
   }, []);
 
   return (
-    <Grid>
-      <Col span={12}>
-        <WeatherCard items={weatherItems} />
-        <Divider />
-      </Col>
-
-      <Col span={12}>
+    <>
+      {loading ? (
+        <Spinner />
+      ) : (
         <Grid>
-          {/* {weather.minutely.map((item: any, key: number) => {
+          <Col span={12}>
+            <WeatherCard items={weatherItems} />
+            <Divider />
+          </Col>
+
+          <Col span={12}>
+            <Grid>
+              {/* {weather.minutely.map((item: any, key: number) => {
             if (key % 5 === 0) {
               return (
                 <Col span={3}>
@@ -67,9 +72,11 @@ const Home = () => {
               );
             }
           })} */}
+            </Grid>
+          </Col>
         </Grid>
-      </Col>
-    </Grid>
+      )}
+    </>
   );
 };
 
