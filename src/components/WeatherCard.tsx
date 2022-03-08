@@ -10,23 +10,23 @@ interface IWeatherCard {
 const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
   return (
     <Grid sx={{ margin: "1rem 0" }}>
-      <Col span={5}>
+      <Col xs={12} sm={12} md={3} span={5}>
         <Card
           sx={{
             height: "100%",
           }}
         >
           <AiOutlineCloud size="30" />
-          <Title order={1}>28 °C</Title>
+          <Title order={1}>{items.temp} °K</Title>
           <Text size="md" weight={700}>
-            Scattered Clouds
+            {items.weather[0].description}
           </Text>
           <Text size="xl" weight={700}>
             Colombo, Sri Lanka
           </Text>
         </Card>
       </Col>
-      <Col span={7}>
+      <Col xs={12} sm={12} md={9} span={7}>
         <Card
           sx={{
             height: "100%",
