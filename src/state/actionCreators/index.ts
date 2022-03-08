@@ -29,3 +29,30 @@ export const getWeather = (latitude: number, longitude:number) => {
       }
     };
   };
+
+  export const getGeolocation = (location:string) => {
+
+    const key = process.env.REACT_APP_POSITION_STACK_GEOLOCATION_KEY;
+
+    return async (dispatch: Dispatch<Action>) => {
+      try {
+        dispatch({
+          type: ActionType.GEOLOCATION_REQUEST,
+        });
+  
+        const { data } = await axios.get(`http://api.positionstack.com/v1/forward
+        ? access_key = ${key}
+        & query = ${location}`);
+  
+        dispatch({
+          type: ActionType.GEOLOCATION_SUCCESS,
+          payload: data,
+        });
+      } catch (error: any) {
+        dispatch({
+          type: ActionType.GEOLOCATION_FAIL,
+          payload: error,
+        });
+      }
+    };
+  };
