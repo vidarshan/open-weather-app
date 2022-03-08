@@ -1,18 +1,7 @@
-import {
-  Card,
-  Col,
-  Container,
-  Divider,
-  Grid,
-  Group,
-  Select,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Col, Divider, Grid } from "@mantine/core";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
-import React, { useEffect } from "react";
-import InfoCard from "./InfoCard";
+import { useEffect } from "react";
 import HourlyCard from "./HourlyCard";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
