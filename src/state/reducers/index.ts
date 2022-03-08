@@ -1,8 +1,10 @@
 import { combineReducers } from "redux";
+import { getGeolocationReducer } from "./geolocationReducers";
 import { getWeatherReducer } from "./weatherReducers";
 
 const reducers = combineReducers({
-   weather: getWeatherReducer
+   weather: getWeatherReducer,
+   geolocation: getGeolocationReducer
   });
   
   export default reducers;
