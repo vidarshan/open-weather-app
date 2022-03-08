@@ -57,21 +57,28 @@ const Home = () => {
       ) : (
         <Grid>
           <Col span={12}>
-            <WeatherCard items={weather.current} />
+            {Object.keys(weather).includes("current") && (
+              <WeatherCard items={weather.current} />
+            )}
+
             <Divider />
           </Col>
 
           <Col span={12}>
             <Grid>
-              {/* {weather.minutely.map((item: any, key: number) => {
-            if (key % 5 === 0) {
-              return (
-                <Col span={3}>
-                  <HourlyCard dt={item.dt} precipitation={item.precipitation} />
-                </Col>
-              );
-            }
-          })} */}
+              {Object.keys(weather).includes("minutely") &&
+                weather.minutely.map((item: any, key: number) => {
+                  if (key % 5 === 0) {
+                    return (
+                      <Col span={3}>
+                        <HourlyCard
+                          dt={item.dt}
+                          precipitation={item.precipitation}
+                        />
+                      </Col>
+                    );
+                  }
+                })}
             </Grid>
           </Col>
         </Grid>
