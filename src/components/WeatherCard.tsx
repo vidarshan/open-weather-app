@@ -51,7 +51,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
               <Divider variant="dashed" />
             </Col>
             <Col span={1}>
-              <Text align="right" size="sm" weight={600}>
+              <Text align="left" size="sm" weight={600}>
                 {items.uvi}
               </Text>
             </Col>
@@ -67,7 +67,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
               <Divider variant="dashed" />
             </Col>
             <Col span={1}>
-              <Text align="right" size="sm" weight={600}>
+              <Text align="left" size="sm" weight={600}>
                 {items.humidity}
               </Text>
             </Col>
@@ -83,7 +83,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
               <Divider variant="dashed" />
             </Col>
             <Col span={1}>
-              <Text align="right" size="sm" weight={600}>
+              <Text align="left" size="sm" weight={600}>
                 {items.clouds}
               </Text>
             </Col>
@@ -99,7 +99,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
               <Divider variant="dashed" />
             </Col>
             <Col span={1}>
-              <Text align="right" size="sm" weight={600}>
+              <Text align="left" size="sm" weight={600}>
                 {items.visibility}
               </Text>
             </Col>
@@ -115,7 +115,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
               <Divider variant="dashed" />
             </Col>
             <Col span={1}>
-              <Text align="right" size="sm" weight={600}>
+              <Text align="left" size="sm" weight={600}>
                 {items.wind_speed}
               </Text>
             </Col>
@@ -132,7 +132,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
               <Divider variant="dashed" />
             </Col>
             <Col span={1}>
-              <Text align="right" size="sm" weight={600}>
+              <Text align="left" size="sm" weight={600}>
                 {timestampToDateTime(items.sunrise)}
               </Text>
             </Col>
@@ -148,7 +148,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
               <Divider variant="dashed" />
             </Col>
             <Col span={1}>
-              <Text align="right" size="sm" weight={600}>
+              <Text align="left" size="sm" weight={600}>
                 {timestampToDateTime(items.sunset)}
               </Text>
             </Col>
