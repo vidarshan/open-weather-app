@@ -55,7 +55,7 @@ function App() {
 
   const handlerChangeSettings = () => {
     localStorage.setItem("units", selectedUnit);
-    console.log(selectedUnit);
+    setOpenSettings(false);
   };
 
   // useEffect(() => {
