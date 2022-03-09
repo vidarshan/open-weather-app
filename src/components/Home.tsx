@@ -62,7 +62,7 @@ const Home = () => {
         );
       }
     }
-  }, [geolocation]);
+  }, [geolocation, weatherType]);
 
   return (
     <>
@@ -85,7 +85,8 @@ const Home = () => {
               </Col>
               <Col span={12}>
                 <Grid>
-                  {Object.keys(weather).includes("minutely") &&
+                  {weatherType === "now" ? (
+                    Object.keys(weather).includes("minutely") &&
                     weather.minutely.map((item: any, key: number) => {
                       if (key % 15 === 0) {
                         return (
@@ -97,7 +98,12 @@ const Home = () => {
                           </Col>
                         );
                       }
-                    })}
+                    })
+                  ) : weatherType === "daily" ? (
+                    <>daily</>
+                  ) : (
+                    <>hourly</>
+                  )}
                 </Grid>
               </Col>
             </Grid>

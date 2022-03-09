@@ -111,6 +111,7 @@ function App() {
                     alignItems: "center",
                     marginBottom: "1rem",
                   }}
+                  onClick={() => handlerWeatherTypeChange("now")}
                 >
                   <AiOutlineCloud size="30" />
                   <Text weight={600} size="xs">
