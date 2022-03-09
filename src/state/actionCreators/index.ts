@@ -14,7 +14,7 @@ export const getWeather = (latitude: number, longitude:number) => {
           type: ActionType.GET_WEATHER_REQUEST,
         });
   
-        const { data } = await axios.get(`${url}?lat=${latitude}&lon=${longitude}&exclude=alerts&appid=${key}`);
+        const { data } = await axios.get(`${url}?lat=${latitude}&lon=${longitude}&exclude=alerts&appid=${key}&units=imperial`);
   
         dispatch({
           type: ActionType.GET_WEATHER_SUCCESS,

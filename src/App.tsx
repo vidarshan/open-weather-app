@@ -12,11 +12,14 @@ import {
   ActionIcon,
   AppShell,
   Burger,
+  Button,
   Container,
   Group,
   Header,
   MediaQuery,
+  Modal,
   Navbar,
+  Select,
   Switch,
   Text,
   TextInput,
@@ -41,11 +44,18 @@ function App() {
   );
 
   const [opened, setOpened] = useState(false);
+  const [openSettings, setOpenSettings] = useState(false);
+  const [selectedUnit, setSelectedUnit] = useState("standard");
   const [geolocation, setGeolocation] = useState("");
   const theme = useMantineTheme();
 
   const handlerSearchGeolocation = () => {
     getGeolocation(geolocation);
+  };
+
+  const handlerChangeSettings = () => {
+    localStorage.setItem("units", selectedUnit);
+    console.log(selectedUnit);
   };
 
   // useEffect(() => {
@@ -122,6 +132,7 @@ function App() {
                 alignItems: "center",
                 marginBottom: "1rem",
               }}
+              onClick={() => setOpenSettings(true)}
             >
               <MediaQuery largerThan="xs" styles={{ display: "none" }}>
                 <TextInput placeholder="Search for a location" />
@@ -182,6 +193,31 @@ function App() {
         </Header>
       }
     >
+      <Modal
+        centered
+        closeOnClickOutside={false}
+        opened={openSettings}
+        onClose={() => setOpenSettings(false)}
+        title="Settings"
+      >
+        <Select
+          label="Select units"
+          onChange={(e) => setSelectedUnit(e ? e : "standard")}
+          placeholder="Select One"
+          data={[
+            { value: "standard", label: "Standard" },
+            { value: "metric", label: "Metric" },
+            { value: "imperial", label: "Imperial" },
+          ]}
+        />
+        <Button
+          sx={{ marginTop: "1rem" }}
+          onClick={() => handlerChangeSettings()}
+          fullWidth
+        >
+          Save Settings
+        </Button>
+      </Modal>
       <Container fluid>
         <Home />
       </Container>
