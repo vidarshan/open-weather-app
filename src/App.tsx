@@ -221,6 +221,7 @@ function App() {
               label="Select units"
               onChange={(e) => setSelectedUnit(e ? e : "standard")}
               placeholder="Select One"
+              value={selectedUnit}
               data={[
                 { value: "standard", label: "Standard" },
                 { value: "metric", label: "Metric" },

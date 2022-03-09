@@ -63,38 +63,40 @@ const Home = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <Grid>
-          <Col span={12}>
-            {Object.keys(weather).includes("current") && (
-              <WeatherCard
-                timezone={weather.timezone}
-                items={weather.current}
-              />
-            )}
-
-            <Divider />
-          </Col>
-          <Col span={12}>
-            <Title order={5}>Forecast for the next hour</Title>
-          </Col>
-          <Col span={12}>
+        <>
+          {Object.keys(weather).includes("current") && (
             <Grid>
-              {Object.keys(weather).includes("minutely") &&
-                weather.minutely.map((item: any, key: number) => {
-                  if (key % 15 === 0) {
-                    return (
-                      <Col span={3}>
-                        <HourlyCard
-                          dt={item.dt}
-                          precipitation={item.precipitation}
-                        />
-                      </Col>
-                    );
-                  }
-                })}
+              <Col span={12}>
+                <WeatherCard
+                  timezone={weather.timezone}
+                  items={weather.current}
+                />
+
+                <Divider />
+              </Col>
+              <Col span={12}>
+                <Title order={5}>Forecast for the next hour</Title>
+              </Col>
+              <Col span={12}>
+                <Grid>
+                  {Object.keys(weather).includes("minutely") &&
+                    weather.minutely.map((item: any, key: number) => {
+                      if (key % 15 === 0) {
+                        return (
+                          <Col span={3}>
+                            <HourlyCard
+                              dt={item.dt}
+                              precipitation={item.precipitation}
+                            />
+                          </Col>
+                        );
+                      }
+                    })}
+                </Grid>
+              </Col>
             </Grid>
-          </Col>
-        </Grid>
+          )}
+        </>
       )}
     </>
   );
