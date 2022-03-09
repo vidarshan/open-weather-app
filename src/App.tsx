@@ -203,7 +203,12 @@ function App() {
                 </MediaQuery>
                 <Group>
                   <RiSunLine />
-                  <Switch color="yellow" onClick={() => toggleColorScheme()} />
+                  <Switch
+                    checked={colorScheme === "light" ? false : true}
+                    color="blue"
+                    size="xs"
+                    onClick={() => toggleColorScheme()}
+                  />
                   <RiMoonLine />
                 </Group>
               </div>
