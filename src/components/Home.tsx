@@ -16,6 +16,8 @@ const Home = () => {
     (state: State) => state.weather
   );
 
+  const { geolocation } = useSelector((state: State) => state.geolocation);
+
   const { getWeather } = bindActionCreators(actionCreators, dispatch);
 
   const weatherItems = [
@@ -38,6 +40,17 @@ const Home = () => {
       console.log("Not Available");
     }
   }, []);
+
+  useEffect(() => {
+    if (Object.keys(geolocation)) {
+      if (
+        Object.keys(geolocation).includes("data") &&
+        geolocation.data.length
+      ) {
+        getWeather(geolocation.data[0].latitude, geolocation.data[0].longitude);
+      }
+    }
+  }, [geolocation]);
 
   return (
     <>

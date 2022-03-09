@@ -48,17 +48,17 @@ function App() {
     getGeolocation(geolocation);
   };
 
-  useEffect(() => {
-    if (
-      Object.keys(geoLocationResult).includes("data") &&
-      geoLocationResult.data.length
-    ) {
-      getWeather(
-        geoLocationResult.data[0].latitude,
-        geoLocationResult.data[0].longitude
-      );
-    }
-  }, [geoLocationResult]);
+  // useEffect(() => {
+  //   if (
+  //     Object.keys(geoLocationResult).includes("data") &&
+  //     geoLocationResult.data.length
+  //   ) {
+  //     getWeather(
+  //       geoLocationResult.data[0].latitude,
+  //       geoLocationResult.data[0].longitude
+  //     );
+  //   }
+  // }, [geoLocationResult]);
 
   return (
     <AppShell
