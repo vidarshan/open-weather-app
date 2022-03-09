@@ -5,9 +5,13 @@ import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 import { timestampToDateTime } from "../utils/util";
 interface IWeatherCard {
   items: any;
+  timezone: string;
 }
 
-const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
+const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
+  items,
+  timezone,
+}) => {
   return (
     <Grid sx={{ margin: "1rem 0" }}>
       <Col xs={12} sm={12} md={3} span={5}>
@@ -22,7 +26,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({ items }) => {
             {items.weather[0].description}
           </Text>
           <Text size="xl" weight={700}>
-            Colombo, Sri Lanka
+            {timezone}
           </Text>
         </Card>
       </Col>

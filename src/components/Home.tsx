@@ -31,15 +31,15 @@ const Home = () => {
     { id: 8, title: "Sunset", icon: <AiOutlineCloud /> },
   ];
 
-  useEffect(() => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        getWeather(position.coords.latitude, position.coords.longitude);
-      });
-    } else {
-      console.log("Not Available");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if ("geolocation" in navigator) {
+  //     navigator.geolocation.getCurrentPosition(function (position) {
+  //       getWeather(position.coords.latitude, position.coords.longitude);
+  //     });
+  //   } else {
+  //     console.log("Not Available");
+  //   }
+  // }, []);
 
   useEffect(() => {
     if (Object.keys(geolocation)) {
@@ -60,7 +60,10 @@ const Home = () => {
         <Grid>
           <Col span={12}>
             {Object.keys(weather).includes("current") && (
-              <WeatherCard items={weather.current} />
+              <WeatherCard
+                timezone={weather.timezone}
+                items={weather.current}
+              />
             )}
 
             <Divider />
