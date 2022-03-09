@@ -20,7 +20,8 @@ h6 {
   font-family: "Manrope", sans-serif !important;
 }
 
-input {
+input,
+.mantine-Alert-message {
   font-weight: 500 !important;
   font-family: "Manrope", sans-serif !important;
 }

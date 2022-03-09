@@ -1,6 +1,7 @@
-import { Col, Divider, Grid, Title } from "@mantine/core";
+import { Alert, Col, Divider, Grid, Title } from "@mantine/core";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
+import { BiCurrentLocation } from "react-icons/bi";
 import { useEffect } from "react";
 import HourlyCard from "./HourlyCard";
 import { useDispatch, useSelector } from "react-redux";
@@ -64,7 +65,7 @@ const Home = () => {
         <Spinner />
       ) : (
         <>
-          {Object.keys(weather).includes("current") && (
+          {Object.keys(weather).includes("current") ? (
             <Grid>
               <Col span={12}>
                 <WeatherCard
@@ -95,6 +96,14 @@ const Home = () => {
                 </Grid>
               </Col>
             </Grid>
+          ) : (
+            <Alert
+              icon={<BiCurrentLocation size={16} />}
+              title="Location"
+              color="indigo"
+            >
+              Search for a location or select your current location
+            </Alert>
           )}
         </>
       )}
