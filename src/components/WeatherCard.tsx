@@ -1,5 +1,5 @@
 import { Card, Col, Divider, Grid, Group, Text, Title } from "@mantine/core";
-import React, { PropsWithChildren } from "react";
+import React, { PropsWithChildren, useState } from "react";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 import { timestampToDateTime } from "../utils/util";
@@ -12,6 +12,8 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
   items,
   timezone,
 }) => {
+  const selectedUnit = localStorage.getItem("units");
+
   return (
     <Grid sx={{ margin: "1rem 0" }}>
       <Col xs={12} sm={12} md={3} span={5}>
@@ -21,7 +23,14 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
           }}
         >
           <AiOutlineCloud size="30" />
-          <Title order={1}>{items.temp} °K</Title>
+          <Title order={1}>
+            {items.temp}{" "}
+            {selectedUnit === "metric"
+              ? `°C`
+              : selectedUnit === "imperial"
+              ? `°F`
+              : `°K`}{" "}
+          </Title>
           <Text size="md" weight={700}>
             {items.weather[0].description}
           </Text>
