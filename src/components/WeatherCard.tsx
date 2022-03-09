@@ -21,6 +21,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
           sx={{
             height: "100%",
           }}
+          withBorder
         >
           <AiOutlineCloud size="30" />
           <Title order={1}>
@@ -39,6 +40,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
           sx={{
             height: "100%",
           }}
+          withBorder
         >
           <Grid
             sx={{

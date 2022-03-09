@@ -9,11 +9,9 @@ import { store } from "./state";
 
 ReactDOM.render(
   <Provider store={store}>
-    <MantineProvider theme={{ colorScheme: "dark" }} withGlobalStyles>
-      <React.StrictMode>
-        <App />
-      </React.StrictMode>
-    </MantineProvider>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Provider>,
   document.getElementById("root")
 );

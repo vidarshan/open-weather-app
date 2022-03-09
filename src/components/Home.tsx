@@ -1,4 +1,4 @@
-import { Col, Divider, Grid } from "@mantine/core";
+import { Col, Divider, Grid, Title } from "@mantine/core";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 import { useEffect } from "react";
@@ -74,12 +74,14 @@ const Home = () => {
 
             <Divider />
           </Col>
-
+          <Col span={12}>
+            <Title order={5}>Forecast for the next hour</Title>
+          </Col>
           <Col span={12}>
             <Grid>
               {Object.keys(weather).includes("minutely") &&
                 weather.minutely.map((item: any, key: number) => {
-                  if (key % 5 === 0) {
+                  if (key % 15 === 0) {
                     return (
                       <Col span={3}>
                         <HourlyCard
