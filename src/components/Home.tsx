@@ -17,9 +17,14 @@ const Home = () => {
     (state: State) => state.weather
   );
 
+  const { weatherType } = useSelector((state: State) => state.weatherType);
+
   const { geolocation } = useSelector((state: State) => state.geolocation);
 
-  const { getWeather } = bindActionCreators(actionCreators, dispatch);
+  const { getWeather, changeWeatherType } = bindActionCreators(
+    actionCreators,
+    dispatch
+  );
 
   const weatherItems = [
     { id: 1, title: "UV Index", icon: <RiSunLine /> },

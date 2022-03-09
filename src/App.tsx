@@ -47,7 +47,7 @@ function App() {
     defaultValue: "light",
   });
 
-  const { getGeolocation, getWeather } = bindActionCreators(
+  const { getGeolocation, getWeather, changeWeatherType } = bindActionCreators(
     actionCreators,
     dispatch
   );
@@ -63,6 +63,10 @@ function App() {
 
   const handlerSearchGeolocation = () => {
     getGeolocation(geolocation);
+  };
+
+  const handlerWeatherTypeChange = (wType: string) => {
+    changeWeatherType(wType);
   };
 
   const handlerChangeSettings = () => {
@@ -121,6 +125,7 @@ function App() {
                     alignItems: "center",
                     marginBottom: "1rem",
                   }}
+                  onClick={() => handlerWeatherTypeChange("hourly")}
                 >
                   <AiOutlineFieldTime size="30" />
                   <Text weight={600} size="xs">
@@ -135,6 +140,7 @@ function App() {
                     alignItems: "center",
                     marginBottom: "1rem",
                   }}
+                  onClick={() => handlerWeatherTypeChange("daily")}
                 >
                   <AiOutlineCalendar size="30" />
                   <Text weight={600} size="xs">
