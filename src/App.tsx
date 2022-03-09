@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AiOutlineCalendar,
   AiOutlineCloud,
@@ -32,22 +32,18 @@ import Home from "./components/Home";
 import { useDispatch, useSelector } from "react-redux";
 import { actionCreators, State } from "./state";
 import { bindActionCreators } from "redux";
-import { useHotkeys, useLocalStorageValue } from "@mantine/hooks";
+import { useLocalStorageValue } from "@mantine/hooks";
 function App() {
   const dispatch = useDispatch();
 
-  const {
-    geolocation: geoLocationResult,
-    loading,
-    error,
-  } = useSelector((state: State) => state.geolocation);
+  const { loading } = useSelector((state: State) => state.geolocation);
 
   const [colorScheme, setColorScheme] = useLocalStorageValue<ColorScheme>({
     key: "mantine-color-scheme",
     defaultValue: "light",
   });
 
-  const { getGeolocation, getWeather, changeWeatherType } = bindActionCreators(
+  const { getGeolocation, changeWeatherType } = bindActionCreators(
     actionCreators,
     dispatch
   );

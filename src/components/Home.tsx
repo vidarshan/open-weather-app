@@ -1,6 +1,4 @@
 import { Alert, Col, Divider, Grid, Title } from "@mantine/core";
-import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
-import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 import { BiCurrentLocation } from "react-icons/bi";
 import { useEffect } from "react";
 import HourlyCard from "./HourlyCard";
@@ -13,30 +11,13 @@ import Spinner from "./Spinner";
 const Home = () => {
   const dispatch = useDispatch();
 
-  const { weather, loading, error } = useSelector(
-    (state: State) => state.weather
-  );
+  const { weather, loading } = useSelector((state: State) => state.weather);
 
   const { weatherType } = useSelector((state: State) => state.weatherType);
 
   const { geolocation } = useSelector((state: State) => state.geolocation);
 
-  const { getWeather, changeWeatherType } = bindActionCreators(
-    actionCreators,
-    dispatch
-  );
-
-  const weatherItems = [
-    { id: 1, title: "UV Index", icon: <RiSunLine /> },
-    { id: 2, title: "Humidity", icon: <RiDropLine /> },
-    { id: 3, title: "Clouds", icon: <AiOutlineCloud /> },
-    { id: 4, title: "Visibility", icon: <AiOutlineEye /> },
-    { id: 5, title: "Wind", icon: <RiCloudWindyLine /> },
-    { id: 6, title: "Pressure", icon: <AiOutlineCloud /> },
-    { id: 7, title: "Sunrise", icon: <AiOutlineCloud /> },
-    { id: 8, title: "Sunset", icon: <AiOutlineCloud /> },
-  ];
-
+  const { getWeather } = bindActionCreators(actionCreators, dispatch);
   // useEffect(() => {
   //   if ("geolocation" in navigator) {
   //     navigator.geolocation.getCurrentPosition(function (position) {
