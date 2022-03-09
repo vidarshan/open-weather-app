@@ -47,7 +47,13 @@ const Home = () => {
         Object.keys(geolocation).includes("data") &&
         geolocation.data.length
       ) {
-        getWeather(geolocation.data[0].latitude, geolocation.data[0].longitude);
+        getWeather(
+          geolocation.data[0].latitude,
+          geolocation.data[0].longitude,
+          localStorage.getItem("units")
+            ? localStorage.getItem("units")
+            : "standard"
+        );
       }
     }
   }, [geolocation]);

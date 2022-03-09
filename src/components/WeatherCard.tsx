@@ -24,12 +24,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
         >
           <AiOutlineCloud size="30" />
           <Title order={1}>
-            {items.temp}{" "}
-            {selectedUnit === "metric"
-              ? `°C`
-              : selectedUnit === "imperial"
-              ? `°F`
-              : `°K`}{" "}
+            {items.temp} {selectedUnit === "metric" ? `°C` : `°F`}
           </Title>
           <Text size="md" weight={700}>
             {items.weather[0].description}
