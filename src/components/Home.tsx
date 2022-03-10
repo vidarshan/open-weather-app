@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators, State } from "../state";
 import WeatherCard from "./WeatherCard";
+
 import Spinner from "./Spinner";
 import DailyCard from "./DailyCard";
 import MinutelyCard from "./MinutelyCard";
@@ -29,6 +30,25 @@ const Home = () => {
       console.log("Not Available");
     }
   }, []);
+
+  let d = {
+    dt: 1646924400,
+    temp: 15.53,
+    feels_like: 14.68,
+    pressure: 1015,
+    humidity: 59,
+    dew_point: 7.56,
+    uvi: 0.51,
+    clouds: 79,
+    visibility: 10000,
+    wind_speed: 5.33,
+    wind_deg: 173,
+    wind_gust: 9.17,
+    weather: [
+      { id: 803, main: "Clouds", description: "broken clouds", icon: "04d" },
+    ],
+    pop: 0,
+  };
 
   useEffect(() => {
     if (Object.keys(geolocation)) {
@@ -93,11 +113,32 @@ const Home = () => {
                     <>daily</>
                   ) : (
                     Object.keys(weather).includes("hourly") &&
-                    weather.minutely.map((item: any, key: number) => {
-                      if (key % 15 === 0) {
+                    weather.hourly.map((item: any, key: number) => {
+                      if (key % 24 === 0) {
                         return (
                           <Col span={3}>
-                            <HourlyCard dt={item.dt} temp={item.temp} />
+                            <HourlyCard
+                              dt={1646924400}
+                              temp={15.53}
+                              feels_like={14.68}
+                              pressure={1015}
+                              humidity={59}
+                              dew_point={7.56}
+                              uvi={0.51}
+                              clouds={79}
+                              visibility={10000}
+                              wind_speed={5.33}
+                              wind_deg={173}
+                              wind_gust={9.17}
+                              weather={[
+                                {
+                                  id: 803,
+                                  main: "Clouds",
+                                  description: "broken clouds",
+                                  icon: "04d",
+                                },
+                              ]}
+                            />
                           </Col>
                         );
                       }
