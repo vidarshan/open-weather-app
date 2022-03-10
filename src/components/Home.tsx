@@ -92,7 +92,16 @@ const Home = () => {
                   ) : weatherType === "daily" ? (
                     <>daily</>
                   ) : (
-                    <>hourly</>
+                    Object.keys(weather).includes("hourly") &&
+                    weather.minutely.map((item: any, key: number) => {
+                      if (key % 15 === 0) {
+                        return (
+                          <Col span={3}>
+                            <HourlyCard dt={item.dt} temp={item.temp} />
+                          </Col>
+                        );
+                      }
+                    })
                   )}
                 </Grid>
               </Col>

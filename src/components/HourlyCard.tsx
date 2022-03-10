@@ -4,13 +4,10 @@ import { timestampToDateTime } from "../utils/util";
 
 interface IHourlyCard {
   dt: number;
-  precipitation: number;
+  temp: number;
 }
 
-const HourlyCard: React.FC<PropsWithChildren<IHourlyCard>> = ({
-  dt,
-  precipitation,
-}) => {
+const HourlyCard: React.FC<PropsWithChildren<IHourlyCard>> = ({ dt, temp }) => {
   return (
     <Card withBorder>
       <Text align="left" size="sm" weight={500}>
@@ -18,8 +15,8 @@ const HourlyCard: React.FC<PropsWithChildren<IHourlyCard>> = ({
       </Text>
 
       <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
-        <Text weight={700}>Precipitation</Text>
-        <Text weight={700}>{precipitation}</Text>
+        <Text weight={700}>Temperature</Text>
+        <Text weight={700}>{temp}</Text>
       </Group>
     </Card>
   );
