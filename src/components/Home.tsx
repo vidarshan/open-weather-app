@@ -7,6 +7,8 @@ import { bindActionCreators } from "redux";
 import { actionCreators, State } from "../state";
 import WeatherCard from "./WeatherCard";
 import Spinner from "./Spinner";
+import DailyCard from "./DailyCard";
+import MinutelyCard from "./MinutelyCard";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -43,7 +45,7 @@ const Home = () => {
         );
       }
     }
-  }, [geolocation, weatherType]);
+  }, [geolocation]);
 
   return (
     <>
@@ -62,7 +64,14 @@ const Home = () => {
                 <Divider />
               </Col>
               <Col span={12}>
-                <Title order={5}>Forecast for the next hour</Title>
+                <Title order={5}>
+                  Forecast for the{" "}
+                  {weatherType === "now"
+                    ? "next hour"
+                    : weatherType === "hourly"
+                    ? "next 48 hours"
+                    : "next 7 days"}{" "}
+                </Title>
               </Col>
               <Col span={12}>
                 <Grid>
@@ -72,7 +81,7 @@ const Home = () => {
                       if (key % 15 === 0) {
                         return (
                           <Col span={3}>
-                            <HourlyCard
+                            <MinutelyCard
                               dt={item.dt}
                               precipitation={item.precipitation}
                             />
