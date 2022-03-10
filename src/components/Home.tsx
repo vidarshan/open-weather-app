@@ -18,15 +18,15 @@ const Home = () => {
   const { geolocation } = useSelector((state: State) => state.geolocation);
 
   const { getWeather } = bindActionCreators(actionCreators, dispatch);
-  // useEffect(() => {
-  //   if ("geolocation" in navigator) {
-  //     navigator.geolocation.getCurrentPosition(function (position) {
-  //       getWeather(position.coords.latitude, position.coords.longitude);
-  //     });
-  //   } else {
-  //     console.log("Not Available");
-  //   }
-  // }, []);
+  useEffect(() => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        // getWeather(position.coords.latitude, position.coords.longitude);
+      });
+    } else {
+      console.log("Not Available");
+    }
+  }, []);
 
   useEffect(() => {
     if (Object.keys(geolocation)) {
