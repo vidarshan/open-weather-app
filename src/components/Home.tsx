@@ -114,30 +114,23 @@ const Home = () => {
                   ) : (
                     Object.keys(weather).includes("hourly") &&
                     weather.hourly.map((item: any, key: number) => {
-                      if (key % 24 === 0) {
+                      if (key % 12 === 0) {
                         return (
                           <Col span={3}>
                             <HourlyCard
-                              dt={1646924400}
-                              temp={15.53}
-                              feels_like={14.68}
-                              pressure={1015}
-                              humidity={59}
-                              dew_point={7.56}
-                              uvi={0.51}
-                              clouds={79}
-                              visibility={10000}
-                              wind_speed={5.33}
-                              wind_deg={173}
-                              wind_gust={9.17}
-                              weather={[
-                                {
-                                  id: 803,
-                                  main: "Clouds",
-                                  description: "broken clouds",
-                                  icon: "04d",
-                                },
-                              ]}
+                              dt={item.dt}
+                              temp={item.temp}
+                              feels_like={item.feels_like}
+                              pressure={item.pressure}
+                              humidity={item.humidity}
+                              dew_point={item.dew_point}
+                              uvi={item.uvi}
+                              clouds={item.clouds}
+                              visibility={item.visibility}
+                              wind_speed={item.wind_speed}
+                              wind_deg={item.wind_deg}
+                              wind_gust={item.wind_gust}
+                              weather={item.weather}
                             />
                           </Col>
                         );

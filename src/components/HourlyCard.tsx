@@ -36,7 +36,7 @@ const HourlyCard: React.FC<PropsWithChildren<IHourlyCard>> = ({
   const selectedUnit = localStorage.getItem("units");
 
   return (
-    <Card withBorder>
+    <Card sx={{ marginTop: "1rem" }} withBorder>
       <Text align="left" size="sm" weight={500}>
         {/* {weather} */}
         {timestampToDateTime(dt)}
