@@ -138,7 +138,10 @@ const Home = () => {
                               tempNight={item.temp.night}
                               tempEve={item.temp.eve}
                               tempMorn={item.temp.morn}
-                              feels_like={item.feels_like}
+                              feelsLikeDay={item.feels_like.day}
+                              feelsLikeMorn={item.feels_like.morn}
+                              feelsLikeNight={item.feels_like.night}
+                              feelsLikeEve={item.feels_like.eve}
                               pressure={item.pressure}
                               humidity={item.humidity}
                               dew_point={item.dew_point}

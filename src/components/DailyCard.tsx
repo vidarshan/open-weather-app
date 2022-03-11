@@ -1,4 +1,12 @@
-import { Card, Col, Divider, Grid, Group, Text } from "@mantine/core";
+import {
+  Card,
+  Col,
+  Container,
+  Divider,
+  Grid,
+  Group,
+  Text,
+} from "@mantine/core";
 import React, { PropsWithChildren } from "react";
 import { timestampToDateTime } from "../utils/util";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
@@ -17,7 +25,10 @@ interface IDailyCard {
   tempNight: number;
   tempEve: number;
   tempMorn: number;
-  feels_like: any;
+  feelsLikeDay: number;
+  feelsLikeMorn: number;
+  feelsLikeNight: number;
+  feelsLikeEve: number;
   pressure: number;
   humidity: number;
   dew_point: number;
@@ -43,7 +54,10 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
   tempNight,
   tempEve,
   tempMorn,
-  feels_like,
+  feelsLikeDay,
+  feelsLikeMorn,
+  feelsLikeNight,
+  feelsLikeEve,
   pressure,
   humidity,
   dew_point,
@@ -90,20 +104,241 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
       </Group> */}
       <Grid>
         <Col span={2}>
-          <Group sx={{ marginTop: "20px" }} direction="column" position="left">
-            <div>
-              {console.log(tempDay)}
-              <AiOutlineCloud />
-              <Text size="sm" weight={600}>
-                {tempDay} {selectedUnit === "metric" ? `°C` : `°F`}
-              </Text>
-            </div>
-          </Group>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
         </Col>
       </Grid>
       <div style={{ marginTop: "20px" }}>
         <Divider variant="solid" label="Feels Like"></Divider>
       </div>
+      <Grid>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Max Temp
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+      </Grid>
     </Card>
   );
 };
