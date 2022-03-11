@@ -67,13 +67,13 @@ const Home = () => {
         Object.keys(geolocation).includes("data") &&
         geolocation.data.length
       ) {
-        getWeather(
-          geolocation.data[0].latitude,
-          geolocation.data[0].longitude,
-          localStorage.getItem("units")
-            ? localStorage.getItem("units")
-            : "standard"
-        );
+        // getWeather(
+        //   geolocation.data[0].latitude,
+        //   geolocation.data[0].longitude,
+        //   localStorage.getItem("units")
+        //     ? localStorage.getItem("units")
+        //     : "standard"
+        // );
       }
     }
   }, [geolocation]);
@@ -122,40 +122,36 @@ const Home = () => {
                       })
                     : weatherType === "daily"
                     ? Object.keys(weather).includes("daily") &&
-                      weather.hourly.map((item: any, key: number) => {
-                        if (key % 12 === 0) {
-                          return (
-                            <Col span={12}>
-                              <DailyCard
-                                dt={1646913600}
-                                sunrise={1646893577}
-                                sunset={1646934923}
-                                moonrise={1646905080}
-                                moonset={1646877840}
-                                moon_phase={0.25}
-                                temp={3}
-                                feels_like={22.22}
-                                pressure={1017}
-                                humidity={72}
-                                dew_point={7.34}
-                                wind_speed={5.44}
-                                wind_deg={175}
-                                wind_gust={13.67}
-                                weather={[
-                                  {
-                                    id: 804,
-                                    main: "Clouds",
-                                    description: "overcast clouds",
-                                    icon: "04d",
-                                  },
-                                ]}
-                                clouds={100}
-                                pop={0}
-                                uvi={1.14}
-                              />
-                            </Col>
-                          );
-                        }
+                      weather.daily.map((item: any, key: number) => {
+                        return (
+                          <Col span={12}>
+                            <DailyCard
+                              dt={item.dt}
+                              sunrise={item.sunrise}
+                              sunset={item.sunset}
+                              moonrise={item.moonrise}
+                              moonset={item.moonset}
+                              moon_phase={item.moon_phase}
+                              tempDay={item.temp.day}
+                              tempMin={item.temp.min}
+                              tempMax={item.temp.max}
+                              tempNight={item.temp.night}
+                              tempEve={item.temp.eve}
+                              tempMorn={item.temp.morn}
+                              feels_like={item.feels_like}
+                              pressure={item.pressure}
+                              humidity={item.humidity}
+                              dew_point={item.dew_point}
+                              wind_speed={item.wind_speed}
+                              wind_deg={item.wind_deg}
+                              wind_gust={item.wind_gust}
+                              weather={item.weather}
+                              clouds={item.clouds}
+                              pop={item.pop}
+                              uvi={item.uvi}
+                            />
+                          </Col>
+                        );
                       })
                     : Object.keys(weather).includes("hourly") &&
                       weather.hourly.map((item: any, key: number) => {
