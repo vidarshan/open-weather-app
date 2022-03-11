@@ -32,22 +32,33 @@ const Home = () => {
   }, []);
 
   let d = {
-    dt: 1646924400,
-    temp: 15.53,
-    feels_like: 14.68,
-    pressure: 1015,
-    humidity: 59,
-    dew_point: 7.56,
-    uvi: 0.51,
-    clouds: 79,
-    visibility: 10000,
-    wind_speed: 5.33,
-    wind_deg: 173,
-    wind_gust: 9.17,
+    dt: 1646913600,
+    sunrise: 1646893577,
+    sunset: 1646934923,
+    moonrise: 1646905080,
+    moonset: 1646877840,
+    moon_phase: 0.25,
+    temp: {
+      day: 12.35,
+      min: 8.05,
+      max: 14.39,
+      night: 10.37,
+      eve: 13.86,
+      morn: 8.05,
+    },
+    feels_like: { day: 11.52, night: 9.42, eve: 13, morn: 5.82 },
+    pressure: 1017,
+    humidity: 72,
+    dew_point: 7.34,
+    wind_speed: 5.44,
+    wind_deg: 175,
+    wind_gust: 13.67,
     weather: [
-      { id: 803, main: "Clouds", description: "broken clouds", icon: "04d" },
+      { id: 804, main: "Clouds", description: "overcast clouds", icon: "04d" },
     ],
+    clouds: 100,
     pop: 0,
+    uvi: 1.14,
   };
 
   useEffect(() => {
@@ -95,48 +106,81 @@ const Home = () => {
               </Col>
               <Col span={12}>
                 <Grid>
-                  {weatherType === "now" ? (
-                    Object.keys(weather).includes("minutely") &&
-                    weather.minutely.map((item: any, key: number) => {
-                      if (key % 15 === 0) {
-                        return (
-                          <Col span={3}>
-                            <MinutelyCard
-                              dt={item.dt}
-                              precipitation={item.precipitation}
-                            />
-                          </Col>
-                        );
-                      }
-                    })
-                  ) : weatherType === "daily" ? (
-                    <>daily</>
-                  ) : (
-                    Object.keys(weather).includes("hourly") &&
-                    weather.hourly.map((item: any, key: number) => {
-                      if (key % 12 === 0) {
-                        return (
-                          <Col span={3}>
-                            <HourlyCard
-                              dt={item.dt}
-                              temp={item.temp}
-                              feels_like={item.feels_like}
-                              pressure={item.pressure}
-                              humidity={item.humidity}
-                              dew_point={item.dew_point}
-                              uvi={item.uvi}
-                              clouds={item.clouds}
-                              visibility={item.visibility}
-                              wind_speed={item.wind_speed}
-                              wind_deg={item.wind_deg}
-                              wind_gust={item.wind_gust}
-                              weather={item.weather}
-                            />
-                          </Col>
-                        );
-                      }
-                    })
-                  )}
+                  {weatherType === "now"
+                    ? Object.keys(weather).includes("minutely") &&
+                      weather.minutely.map((item: any, key: number) => {
+                        if (key % 15 === 0) {
+                          return (
+                            <Col span={3}>
+                              <MinutelyCard
+                                dt={item.dt}
+                                precipitation={item.precipitation}
+                              />
+                            </Col>
+                          );
+                        }
+                      })
+                    : weatherType === "daily"
+                    ? Object.keys(weather).includes("daily") &&
+                      weather.hourly.map((item: any, key: number) => {
+                        if (key % 12 === 0) {
+                          return (
+                            <Col span={12}>
+                              <DailyCard
+                                dt={1646913600}
+                                sunrise={1646893577}
+                                sunset={1646934923}
+                                moonrise={1646905080}
+                                moonset={1646877840}
+                                moon_phase={0.25}
+                                temp={3}
+                                feels_like={22.22}
+                                pressure={1017}
+                                humidity={72}
+                                dew_point={7.34}
+                                wind_speed={5.44}
+                                wind_deg={175}
+                                wind_gust={13.67}
+                                weather={[
+                                  {
+                                    id: 804,
+                                    main: "Clouds",
+                                    description: "overcast clouds",
+                                    icon: "04d",
+                                  },
+                                ]}
+                                clouds={100}
+                                pop={0}
+                                uvi={1.14}
+                              />
+                            </Col>
+                          );
+                        }
+                      })
+                    : Object.keys(weather).includes("hourly") &&
+                      weather.hourly.map((item: any, key: number) => {
+                        if (key % 12 === 0) {
+                          return (
+                            <Col span={3}>
+                              <HourlyCard
+                                dt={item.dt}
+                                temp={item.temp}
+                                feels_like={item.feels_like}
+                                pressure={item.pressure}
+                                humidity={item.humidity}
+                                dew_point={item.dew_point}
+                                uvi={item.uvi}
+                                clouds={item.clouds}
+                                visibility={item.visibility}
+                                wind_speed={item.wind_speed}
+                                wind_deg={item.wind_deg}
+                                wind_gust={item.wind_gust}
+                                weather={item.weather}
+                              />
+                            </Col>
+                          );
+                        }
+                      })}
                 </Grid>
               </Col>
             </Grid>
