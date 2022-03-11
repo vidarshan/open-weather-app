@@ -91,7 +91,151 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
         </Text>
       </div>
       <div style={{ marginTop: "20px" }}>
-        {console.log(tempDay)}
+        <Divider variant="solid"></Divider>
+      </div>
+      <Grid>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  10:30 PM
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Sunrise
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  10:30 PM
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Sunrise
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  10:30 PM
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Sunrise
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  10:30 PM
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Sunrise
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  10:30 PM
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  UV Index
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  10:30 PM
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Pressure
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+      </Grid>
+      <div style={{ marginTop: "20px" }}>
         <Divider variant="solid" label="Temperature"></Divider>
       </div>
       {/* <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
@@ -242,6 +386,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
           </Card>
         </Col>
       </Grid>
+
       <div style={{ marginTop: "20px" }}>
         <Divider variant="solid" label="Feels Like"></Divider>
       </div>
