@@ -74,7 +74,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
   return (
     <Card withBorder>
       <Text align="left" size="sm" weight={500}>
-        {timestampToDateTime(dt, "dt")}
+        {timestampToDateTime(dt)}
       </Text>
       <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
         <RiCloudWindyLine color="orange" size={30} />
@@ -134,7 +134,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Sunrise
+                  Sunset
                 </Text>
               </div>
             </Group>
@@ -157,7 +157,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Sunrise
+                  Moonrise
                 </Text>
               </div>
             </Group>
@@ -181,7 +181,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Sunrise
+                  Moonset
                 </Text>
               </div>
             </Group>
@@ -238,14 +238,6 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
       <div style={{ marginTop: "20px" }}>
         <Divider variant="solid" label="Temperature"></Divider>
       </div>
-      {/* <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
-        <Text size="sm" weight={600}>
-          Feels Like
-        </Text>
-        <Text size="sm" weight={600}>
-          {feels_like} {selectedUnit === "metric" ? `°C` : `°F`}
-        </Text>
-      </Group> */}
       <Grid>
         <Col span={2}>
           <Card withBorder>
@@ -283,34 +275,11 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </div>
 
                 <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                  {tempMin} {selectedUnit === "metric" ? `°C` : `°F`}
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Max Temp
-                </Text>
-              </div>
-            </Group>
-          </Card>
-        </Col>
-        <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Max Temp
+                  Min Temp
                 </Text>
               </div>
             </Group>
@@ -329,34 +298,11 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </div>
 
                 <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                  {tempMorn} {selectedUnit === "metric" ? `°C` : `°F`}
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Max Temp
-                </Text>
-              </div>
-            </Group>
-          </Card>
-        </Col>
-        <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Max Temp
+                  Morning
                 </Text>
               </div>
             </Group>
@@ -375,11 +321,57 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </div>
 
                 <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+                  {tempDay} {selectedUnit === "metric" ? `°C` : `°F`}
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Max Temp
+                  Day
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempEve} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Evening
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {tempNight} {selectedUnit === "metric" ? `°C` : `°F`}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Night
                 </Text>
               </div>
             </Group>
@@ -408,7 +400,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Max Temp
+                  Morning
                 </Text>
               </div>
             </Group>
@@ -431,7 +423,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Max Temp
+                  Day
                 </Text>
               </div>
             </Group>
@@ -454,7 +446,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Max Temp
+                  Evening
                 </Text>
               </div>
             </Group>
@@ -477,7 +469,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
-                  Max Temp
+                  Night
                 </Text>
               </div>
             </Group>
