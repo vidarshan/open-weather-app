@@ -8,7 +8,7 @@ import {
   Text,
 } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
-import { timestampToDateTime } from "../utils/util";
+import { timestampToDateTime, uvIndexToDescription } from "../utils/util";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
 
@@ -107,7 +107,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </div>
 
                 <Text align="left" size="sm" weight={600}>
-                  10:30 PM
+                  {timestampToDateTime(sunrise, "t")}
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
@@ -130,11 +130,35 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </div>
 
                 <Text align="left" size="sm" weight={600}>
-                  10:30 PM
+                  {timestampToDateTime(sunset, "t")}
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
                   Sunset
+                </Text>
+              </div>
+            </Group>
+          </Card>
+        </Col>
+
+        <Col span={2}>
+          <Card withBorder>
+            <Group
+              sx={{ marginTop: "20px" }}
+              direction="column"
+              position="left"
+            >
+              <div>
+                <div style={{ textAlign: "left" }}>
+                  <AiOutlineCloud />
+                </div>
+
+                <Text align="left" size="sm" weight={600}>
+                  {timestampToDateTime(moonset, "t")}
+                </Text>
+
+                <Text align="left" size="sm" weight={600}>
+                  Moonset
                 </Text>
               </div>
             </Group>
@@ -153,7 +177,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </div>
 
                 <Text align="left" size="sm" weight={600}>
-                  10:30 PM
+                  {timestampToDateTime(moonrise, "t")}
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
@@ -177,30 +201,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </div>
 
                 <Text align="left" size="sm" weight={600}>
-                  10:30 PM
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Moonset
-                </Text>
-              </div>
-            </Group>
-          </Card>
-        </Col>
-        <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  10:30 PM
+                  {uvIndexToDescription(uvi)}
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
@@ -224,7 +225,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 </div>
 
                 <Text align="left" size="sm" weight={600}>
-                  10:30 PM
+                  {pressure}
                 </Text>
 
                 <Text align="left" size="sm" weight={600}>
