@@ -31,36 +31,6 @@ const Home = () => {
     }
   }, []);
 
-  let d = {
-    dt: 1646913600,
-    sunrise: 1646893577,
-    sunset: 1646934923,
-    moonrise: 1646905080,
-    moonset: 1646877840,
-    moon_phase: 0.25,
-    temp: {
-      day: 12.35,
-      min: 8.05,
-      max: 14.39,
-      night: 10.37,
-      eve: 13.86,
-      morn: 8.05,
-    },
-    feels_like: { day: 11.52, night: 9.42, eve: 13, morn: 5.82 },
-    pressure: 1017,
-    humidity: 72,
-    dew_point: 7.34,
-    wind_speed: 5.44,
-    wind_deg: 175,
-    wind_gust: 13.67,
-    weather: [
-      { id: 804, main: "Clouds", description: "overcast clouds", icon: "04d" },
-    ],
-    clouds: 100,
-    pop: 0,
-    uvi: 1.14,
-  };
-
   useEffect(() => {
     if (Object.keys(geolocation)) {
       if (

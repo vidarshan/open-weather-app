@@ -1,4 +1,14 @@
 import moment from "moment";
+import {
+  WiMoonAltFull,
+  WiDayCloudy,
+  WiCloudy,
+  WiSleet,
+  WiNightShowers,
+  WiNightLightning,
+  WiSnowflakeCold,
+  WiFog,
+} from "react-icons/wi";
 
 export function timestampToDateTime(timestamp: number, type?: string) {
   return moment
@@ -7,6 +17,7 @@ export function timestampToDateTime(timestamp: number, type?: string) {
 }
 
 export function uvIndexToDescription(uvi: number) {
+  console.log(uvi);
   if (uvi === 0 && uvi <= 2) {
     return "Low";
   } else if (uvi <= 3 && uvi <= 5) {
@@ -16,7 +27,12 @@ export function uvIndexToDescription(uvi: number) {
   } else if (uvi <= 8 && uvi <= 10) {
     return "Very high";
   } else if (uvi >= 11) {
-  } else {
     return "Extreme";
   }
 }
+
+// export function getWeatherIcon(iconCode:string){
+//   switch(iconCode){
+//     case ''
+//   }
+// }

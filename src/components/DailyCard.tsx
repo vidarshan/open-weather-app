@@ -5,6 +5,7 @@ import {
   Divider,
   Grid,
   Group,
+  Image,
   Text,
 } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
@@ -77,7 +78,10 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
         {timestampToDateTime(dt)}
       </Text>
       <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
-        <RiCloudWindyLine color="orange" size={30} />
+        <Image
+          alt="weather-icon"
+          src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
+        />
         <Text size="lg" weight={700}>
           {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
         </Text>

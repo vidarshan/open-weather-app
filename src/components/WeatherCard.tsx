@@ -1,8 +1,17 @@
-import { Card, Col, Divider, Grid, Group, Text, Title } from "@mantine/core";
+import {
+  Card,
+  Col,
+  Divider,
+  Grid,
+  Group,
+  Image,
+  Text,
+  Title,
+} from "@mantine/core";
 import React, { PropsWithChildren } from "react";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
-import { timestampToDateTime } from "../utils/util";
+import { timestampToDateTime, uvIndexToDescription } from "../utils/util";
 interface IWeatherCard {
   items: any;
   timezone: string;
@@ -62,7 +71,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
             </Col>
             <Col span={1}>
               <Text align="left" size="sm" weight={600}>
-                {items.uvi}
+                {uvIndexToDescription(items.uvi)}
               </Text>
             </Col>
             <Col span={2}>
