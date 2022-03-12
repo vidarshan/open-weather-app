@@ -74,7 +74,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
   return (
     <Card withBorder>
       <Text align="left" size="sm" weight={500}>
-        {timestampToDateTime(dt)}
+        {timestampToDateTime(dt, "dt")}
       </Text>
       <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
         <RiCloudWindyLine color="orange" size={30} />
