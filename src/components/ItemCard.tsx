@@ -22,7 +22,7 @@ const ItemCard: React.FC<PropsWithChildren<IItemCard>> = ({
             {description}
           </Text>
 
-          <Text align="left" size="md" weight={500}>
+          <Text align="left" size="md" weight={600}>
             {title}
           </Text>
         </div>

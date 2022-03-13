@@ -34,7 +34,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
   const selectedUnit = localStorage.getItem("units");
 
   return (
-    <Grid sx={{ margin: "1rem 0" }}>
+    <Grid sx={{ marginBottom: "1rem" }}>
       <Col xs={12} sm={12} md={3} span={5}>
         <Card
           sx={{
@@ -97,7 +97,11 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
             <Col span={3}>
               <ItemCard
                 title="Wind"
-                description={items.wind_speed}
+                description={
+                  selectedUnit === "metric"
+                    ? `${items.wind_speed} meters/s`
+                    : `${items.wind_speed} miles/s`
+                }
                 icon={<WiCloudyWindy color="#07B8D8" size={30} />}
               />
             </Col>
