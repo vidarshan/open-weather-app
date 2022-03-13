@@ -13,16 +13,16 @@ const ItemCard: React.FC<PropsWithChildren<IItemCard>> = ({
   title,
 }) => {
   return (
-    <Card withBorder>
+    <Card>
       <Group sx={{ marginTop: "20px" }} direction="column" position="left">
         <div>
           <div style={{ textAlign: "left" }}>{icon}</div>
 
-          <Text align="left" size="sm" weight={600}>
+          <Text align="left" size="md" weight={700}>
             {description}
           </Text>
 
-          <Text align="left" size="sm" weight={600}>
+          <Text align="left" size="md" weight={500}>
             {title}
           </Text>
         </div>

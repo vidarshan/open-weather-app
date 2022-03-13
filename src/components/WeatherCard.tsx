@@ -11,7 +11,17 @@ import {
 import React, { PropsWithChildren } from "react";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
+import {
+  WiAlien,
+  WiCloud,
+  WiCloudy,
+  WiCloudyWindy,
+  WiHumidity,
+  WiSunrise,
+  WiSunset,
+} from "react-icons/wi";
 import { timestampToDateTime, uvIndexToDescription } from "../utils/util";
+import ItemCard from "./ItemCard";
 interface IWeatherCard {
   items: any;
   timezone: string;
@@ -40,11 +50,11 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
           <Title order={1}>
             {items.temp} {selectedUnit === "metric" ? `°C` : `°F`}
           </Title>
-          <Text size="md" weight={700}>
+          <Text size="lg" weight={700}>
             {items.weather[0].description}
           </Text>
-          <Text size="xl" weight={700}>
-            {timezone}
+          <Text size="md" weight={600}>
+            {timezone.replace("/", " - ")}
           </Text>
         </Card>
       </Col>
@@ -55,155 +65,64 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
           }}
           withBorder
         >
-          <Grid
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <Col span={2}>
-              <Group>
-                <RiSunLine />
-                <Text size="sm" weight={600}>
-                  UV Index
-                </Text>
-              </Group>
+          <Grid>
+            <Col span={3}>
+              <ItemCard
+                title="UV Index"
+                description={uvIndexToDescription(items.uvi)}
+                icon={<RiSunLine size={30} color="#C5D807" />}
+              />
             </Col>
-            <Col span={9}>
-              <Divider variant="dashed" />
+            <Col span={3}>
+              <ItemCard
+                title="Humidity"
+                description={items.humidity}
+                icon={<WiHumidity size={30} color="#07B8D8" />}
+              />
             </Col>
-            <Col span={1}>
-              <Text align="left" size="sm" weight={600}>
-                {uvIndexToDescription(items.uvi)}
-              </Text>
+            <Col span={3}>
+              <ItemCard
+                title="Clouds"
+                description={items.clouds}
+                icon={<WiCloudy size={30} color="#07B8D8" />}
+              />
             </Col>
-            <Col span={2}>
-              <Group>
-                <RiDropLine />
-                <Text size="sm" weight={600}>
-                  Humidity
-                </Text>
-              </Group>
+            <Col span={3}>
+              <ItemCard
+                title="Visibility"
+                description={items.visibility}
+                icon={<AiOutlineEye size={30} color="#9FA3A2" />}
+              />
             </Col>
-            <Col span={9}>
-              <Divider variant="dashed" />
+            <Col span={3}>
+              <ItemCard
+                title="Wind"
+                description={items.wind_speed}
+                icon={<WiCloudyWindy color="#07B8D8" size={30} />}
+              />
             </Col>
-            <Col span={1}>
-              <Text align="left" size="sm" weight={600}>
-                {items.humidity}
-              </Text>
+            <Col span={3}>
+              <ItemCard
+                title="Sunrise"
+                description={timestampToDateTime(items.sunrise)}
+                icon={<WiSunset color="#D88C07" size={30} />}
+              />
             </Col>
-            <Col span={2}>
-              <Group>
-                <AiOutlineCloud />
-                <Text size="sm" weight={600}>
-                  Clouds
-                </Text>
-              </Group>
+            <Col span={3}>
+              <ItemCard
+                title="Sunset"
+                description={timestampToDateTime(items.sunset)}
+                icon={<WiSunrise color="#D88C07" size={30} />}
+              />
             </Col>
-            <Col span={9}>
-              <Divider variant="dashed" />
-            </Col>
-            <Col span={1}>
-              <Text align="left" size="sm" weight={600}>
-                {items.clouds}
-              </Text>
-            </Col>
-            <Col span={2}>
-              <Group>
-                <AiOutlineEye />
-                <Text size="sm" weight={600}>
-                  Visibility
-                </Text>
-              </Group>
-            </Col>
-            <Col span={9}>
-              <Divider variant="dashed" />
-            </Col>
-            <Col span={1}>
-              <Text align="left" size="sm" weight={600}>
-                {items.visibility}
-              </Text>
-            </Col>
-            <Col span={2}>
-              <Group>
-                <RiCloudWindyLine />
-                <Text size="sm" weight={600}>
-                  Wind
-                </Text>
-              </Group>
-            </Col>
-            <Col span={9}>
-              <Divider variant="dashed" />
-            </Col>
-            <Col span={1}>
-              <Text align="left" size="sm" weight={600}>
-                {items.wind_speed}
-              </Text>
-            </Col>
-
-            <Col span={2}>
-              <Group>
-                <AiOutlineCloud />
-                <Text size="sm" weight={600}>
-                  Sunrise
-                </Text>
-              </Group>
-            </Col>
-            <Col span={9}>
-              <Divider variant="dashed" />
-            </Col>
-            <Col span={1}>
-              <Text align="left" size="sm" weight={600}>
-                {timestampToDateTime(items.sunrise)}
-              </Text>
-            </Col>
-            <Col span={2}>
-              <Group>
-                <AiOutlineCloud />
-                <Text size="sm" weight={600}>
-                  Sunset
-                </Text>
-              </Group>
-            </Col>
-            <Col span={9}>
-              <Divider variant="dashed" />
-            </Col>
-            <Col span={1}>
-              <Text align="left" size="sm" weight={600}>
-                {timestampToDateTime(items.sunset)}
-              </Text>
+            <Col span={3}>
+              <ItemCard
+                title="Feels Like"
+                description={items.feels_like}
+                icon={<WiAlien color="#9FA3A2" size={30} />}
+              />
             </Col>
           </Grid>
-          {/* {items.map((item: any) => {
-            return (
-              <Grid
-                sx={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <Col span={2}>
-                  <Group>
-                    {item.icon}
-                    <Text size="sm" weight={600}>
-                      {item.title}
-                    </Text>
-                  </Group>
-                </Col>
-                <Col span={9}>
-                  <Divider variant="dashed" />
-                </Col>
-                <Col span={1}>
-                  <Text align="right" size="sm" weight={600}>
-                    36.0
-                  </Text>
-                </Col>
-              </Grid>
-            );
-          })} */}
         </Card>
       </Col>
     </Grid>
