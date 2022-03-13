@@ -3,7 +3,7 @@ import React, { PropsWithChildren } from "react";
 
 interface IItemCard {
   icon: any;
-  description: string;
+  description: any;
   title: string;
 }
 
@@ -19,11 +19,11 @@ const ItemCard: React.FC<PropsWithChildren<IItemCard>> = ({
           <div style={{ textAlign: "left" }}>{icon}</div>
 
           <Text align="left" size="sm" weight={600}>
-            {title}
+            {description}
           </Text>
 
           <Text align="left" size="sm" weight={600}>
-            {description}
+            {title}
           </Text>
         </div>
       </Group>

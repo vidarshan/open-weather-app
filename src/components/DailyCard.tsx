@@ -12,6 +12,7 @@ import React, { PropsWithChildren } from "react";
 import { timestampToDateTime, uvIndexToDescription } from "../utils/util";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
+import ItemCard from "./ItemCard";
 
 interface IDailyCard {
   dt: number;
@@ -99,145 +100,49 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
       </div>
       <Grid>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {timestampToDateTime(sunrise, "t")}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Sunrise
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={timestampToDateTime(sunrise, "t")}
+            title="Sunrise"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {timestampToDateTime(sunset, "t")}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Sunset
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={timestampToDateTime(sunset, "t")}
+            title="Sunset"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
 
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {timestampToDateTime(moonset, "t")}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Moonset
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={timestampToDateTime(moonset, "t")}
+            title="Moonset"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {timestampToDateTime(moonrise, "t")}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Moonrise
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={timestampToDateTime(moonrise, "t")}
+            title="Moonrise"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
 
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {uvIndexToDescription(uvi)}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  UV Index
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={uvi}
+            title="UV Index"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
 
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {pressure}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Pressure
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={pressure}
+            title="Pressure"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
       </Grid>
       <div style={{ marginTop: "20px" }}>
@@ -245,142 +150,58 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
       </div>
       <Grid>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Max Temp
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric" ? `${tempMax} °C` : `${tempMax} °F`
+            }
+            title="Max Temp"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMin} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Min Temp
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric" ? `${tempMin} °C` : `${tempMin} °F`
+            }
+            title="Min Temp"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMorn} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Morning
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric" ? `${tempMorn} °C` : `${tempMorn} °F`
+            }
+            title="Morning"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempDay} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Day
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric" ? `${tempDay} °C` : `${tempDay} °F`
+            }
+            title="Day"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempEve} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Evening
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric" ? `${tempEve} °C` : `${tempEve} °F`
+            }
+            title="Evening"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempNight} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Night
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric" ? `${tempNight} °C` : `${tempNight} °F`
+            }
+            title="Night"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
       </Grid>
 
@@ -389,96 +210,48 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
       </div>
       <Grid>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Morning
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric"
+                ? `${feelsLikeMorn} °C`
+                : `${feelsLikeMorn} °F`
+            }
+            title="Morning"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Day
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric"
+                ? `${feelsLikeDay} °C`
+                : `${feelsLikeDay} °F`
+            }
+            title="Day"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Evening
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric"
+                ? `${feelsLikeEve} °C`
+                : `${feelsLikeEve} °F`
+            }
+            title="Evening"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
         <Col span={2}>
-          <Card withBorder>
-            <Group
-              sx={{ marginTop: "20px" }}
-              direction="column"
-              position="left"
-            >
-              <div>
-                <div style={{ textAlign: "left" }}>
-                  <AiOutlineCloud />
-                </div>
-
-                <Text align="left" size="sm" weight={600}>
-                  {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
-                </Text>
-
-                <Text align="left" size="sm" weight={600}>
-                  Night
-                </Text>
-              </div>
-            </Group>
-          </Card>
+          <ItemCard
+            description={
+              selectedUnit === "metric"
+                ? `${feelsLikeNight} °C`
+                : `${feelsLikeNight} °F`
+            }
+            title="Night"
+            icon={<AiOutlineCloud />}
+          />
         </Col>
       </Grid>
     </Card>
