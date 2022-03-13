@@ -24,7 +24,13 @@ const Home = () => {
   useEffect(() => {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition(function (position) {
-        // getWeather(position.coords.latitude, position.coords.longitude);
+        getWeather(
+          position.coords.latitude,
+          position.coords.longitude,
+          localStorage.getItem("units")
+            ? localStorage.getItem("units")
+            : "standard"
+        );
       });
     } else {
       console.log("Not Available");
@@ -37,13 +43,13 @@ const Home = () => {
         Object.keys(geolocation).includes("data") &&
         geolocation.data.length
       ) {
-        // getWeather(
-        //   geolocation.data[0].latitude,
-        //   geolocation.data[0].longitude,
-        //   localStorage.getItem("units")
-        //     ? localStorage.getItem("units")
-        //     : "standard"
-        // );
+        getWeather(
+          geolocation.data[0].latitude,
+          geolocation.data[0].longitude,
+          localStorage.getItem("units")
+            ? localStorage.getItem("units")
+            : "standard"
+        );
       }
     }
   }, [geolocation]);

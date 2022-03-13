@@ -32,7 +32,11 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
           }}
           withBorder
         >
-          <AiOutlineCloud size="30" />
+          <Image
+            width={100}
+            alt="weather-icon"
+            src={`http://openweathermap.org/img/wn/${items.weather[0].icon}@2x.png`}
+          />
           <Title order={1}>
             {items.temp} {selectedUnit === "metric" ? `°C` : `°F`}
           </Title>
