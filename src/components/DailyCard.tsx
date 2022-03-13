@@ -12,6 +12,24 @@ import React, { PropsWithChildren } from "react";
 import { timestampToDateTime, uvIndexToDescription } from "../utils/util";
 import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
 import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
+import {
+  WiDayCloudy,
+  WiDaySunny,
+  WiDaySunnyOvercast,
+  WiDirectionDown,
+  WiDirectionUp,
+  WiDust,
+  WiFlood,
+  WiHorizon,
+  WiHorizonAlt,
+  WiMoonrise,
+  WiMoonset,
+  WiNightAltCloudy,
+  WiSunrise,
+  WiSunset,
+  WiThermometer,
+  WiThermometerExterior,
+} from "react-icons/wi";
 import ItemCard from "./ItemCard";
 
 interface IDailyCard {
@@ -75,21 +93,22 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
 
   return (
     <Card withBorder>
-      <Text align="left" size="sm" weight={500}>
-        {timestampToDateTime(dt)}
+      <Text align="left" size="sm" weight={600}>
+        {timestampToDateTime(dt, "dt")}
       </Text>
       <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
+        <Text size="xl" weight={700}>
+          {weather[0].main}
+          {/* {tempMax} {selectedUnit === "metric" ? `°C` : `°F`} */}
+        </Text>
         <Image
           alt="weather-icon"
           src={`http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`}
         />
-        <Text size="lg" weight={700}>
-          {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
-        </Text>
       </Group>
       <div style={{ marginTop: "20px" }}>
         <Text size="lg" weight={700}>
-          {weather[0].main}
+          {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
         </Text>
         <Text size="sm" weight={500}>
           {weather[0].description}
@@ -103,14 +122,14 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
           <ItemCard
             description={timestampToDateTime(sunrise, "t")}
             title="Sunrise"
-            icon={<AiOutlineCloud />}
+            icon={<WiSunrise size={30} />}
           />
         </Col>
         <Col span={2}>
           <ItemCard
             description={timestampToDateTime(sunset, "t")}
             title="Sunset"
-            icon={<AiOutlineCloud />}
+            icon={<WiSunset size={30} />}
           />
         </Col>
 
@@ -118,14 +137,14 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
           <ItemCard
             description={timestampToDateTime(moonset, "t")}
             title="Moonset"
-            icon={<AiOutlineCloud />}
+            icon={<WiMoonset size={30} />}
           />
         </Col>
         <Col span={2}>
           <ItemCard
             description={timestampToDateTime(moonrise, "t")}
             title="Moonrise"
-            icon={<AiOutlineCloud />}
+            icon={<WiMoonrise size={30} />}
           />
         </Col>
 
@@ -133,15 +152,15 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
           <ItemCard
             description={uvi}
             title="UV Index"
-            icon={<AiOutlineCloud />}
+            icon={<WiDust size={30} />}
           />
         </Col>
 
         <Col span={2}>
           <ItemCard
-            description={pressure}
+            description={`${pressure} hg`}
             title="Pressure"
-            icon={<AiOutlineCloud />}
+            icon={<WiFlood size={30} />}
           />
         </Col>
       </Grid>
@@ -155,7 +174,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
               selectedUnit === "metric" ? `${tempMax} °C` : `${tempMax} °F`
             }
             title="Max Temp"
-            icon={<AiOutlineCloud />}
+            icon={<WiThermometer size={30} />}
           />
         </Col>
         <Col span={2}>
@@ -164,7 +183,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
               selectedUnit === "metric" ? `${tempMin} °C` : `${tempMin} °F`
             }
             title="Min Temp"
-            icon={<AiOutlineCloud />}
+            icon={<WiThermometerExterior size={30} />}
           />
         </Col>
         <Col span={2}>
@@ -173,7 +192,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
               selectedUnit === "metric" ? `${tempMorn} °C` : `${tempMorn} °F`
             }
             title="Morning"
-            icon={<AiOutlineCloud />}
+            icon={<WiHorizonAlt size={30} />}
           />
         </Col>
         <Col span={2}>
@@ -182,7 +201,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
               selectedUnit === "metric" ? `${tempDay} °C` : `${tempDay} °F`
             }
             title="Day"
-            icon={<AiOutlineCloud />}
+            icon={<WiDaySunny size={30} />}
           />
         </Col>
         <Col span={2}>
@@ -191,7 +210,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
               selectedUnit === "metric" ? `${tempEve} °C` : `${tempEve} °F`
             }
             title="Evening"
-            icon={<AiOutlineCloud />}
+            icon={<WiHorizon size={30} />}
           />
         </Col>
         <Col span={2}>
@@ -200,7 +219,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
               selectedUnit === "metric" ? `${tempNight} °C` : `${tempNight} °F`
             }
             title="Night"
-            icon={<AiOutlineCloud />}
+            icon={<WiNightAltCloudy size={30} />}
           />
         </Col>
       </Grid>
@@ -217,7 +236,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 : `${feelsLikeMorn} °F`
             }
             title="Morning"
-            icon={<AiOutlineCloud />}
+            icon={<WiHorizonAlt size={30} />}
           />
         </Col>
         <Col span={2}>
@@ -228,7 +247,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 : `${feelsLikeDay} °F`
             }
             title="Day"
-            icon={<AiOutlineCloud />}
+            icon={<WiDaySunny size={30} />}
           />
         </Col>
         <Col span={2}>
@@ -239,7 +258,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 : `${feelsLikeEve} °F`
             }
             title="Evening"
-            icon={<AiOutlineCloud />}
+            icon={<WiHorizon size={30} />}
           />
         </Col>
         <Col span={2}>
@@ -250,7 +269,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
                 : `${feelsLikeNight} °F`
             }
             title="Night"
-            icon={<AiOutlineCloud />}
+            icon={<WiNightAltCloudy size={30} />}
           />
         </Col>
       </Grid>
