@@ -70,7 +70,7 @@ const Home = () => {
 
                 <Divider />
               </Col>
-              <Col span={12}>
+              <Col sx={{ marginTop: "20px" }} span={12}>
                 <Title order={5}>
                   Forecast for the{" "}
                   {weatherType === "now"
@@ -134,7 +134,7 @@ const Home = () => {
                       })
                     : Object.keys(weather).includes("hourly") &&
                       weather.hourly.map((item: any, key: number) => {
-                        if (key % 12 === 0) {
+                        if (key % 6 === 0) {
                           return (
                             <Col span={3}>
                               <HourlyCard

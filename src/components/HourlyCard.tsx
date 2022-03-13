@@ -37,11 +37,10 @@ const HourlyCard: React.FC<PropsWithChildren<IHourlyCard>> = ({
 
   return (
     <Card sx={{ marginTop: "1rem" }} withBorder>
-      <Text align="left" size="sm" weight={500}>
-        {/* {weather} */}
-        {timestampToDateTime(dt)}
+      <Text align="left" size="sm" weight={600}>
+        {timestampToDateTime(dt, "dt")}
       </Text>
-      <Group sx={{ marginTop: "20px" }} direction="row" position="apart">
+      <Group sx={{ marginTop: "40px" }} direction="row" position="apart">
         <RiCloudWindyLine color="orange" size={30} />
         <Text size="lg" weight={700}>
           {temp} {selectedUnit === "metric" ? `°C` : `°F`}
