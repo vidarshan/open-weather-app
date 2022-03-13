@@ -1,4 +1,4 @@
-import { Alert, Col, Divider, Grid, Title } from "@mantine/core";
+import { Alert, Col, Container, Divider, Grid, Title } from "@mantine/core";
 import { BiCurrentLocation } from "react-icons/bi";
 import { useEffect } from "react";
 import HourlyCard from "./HourlyCard";
@@ -59,7 +59,7 @@ const Home = () => {
       {loading ? (
         <Spinner />
       ) : (
-        <>
+        <Container size={1280}>
           {Object.keys(weather).includes("current") ? (
             <Grid>
               <Col span={12}>
@@ -168,7 +168,7 @@ const Home = () => {
               Search for a location or select your current location
             </Alert>
           )}
-        </>
+        </Container>
       )}
     </>
   );
