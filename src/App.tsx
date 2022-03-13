@@ -218,15 +218,6 @@ function App() {
                     >
                       <AiOutlineSearch />
                     </ActionIcon>
-                    <ActionIcon
-                      loading={loading}
-                      disabled={loading}
-                      variant="filled"
-                      size="lg"
-                      onClick={() => handlerRequestLocation()}
-                    >
-                      <HiOutlineLocationMarker />
-                    </ActionIcon>
                   </Group>
                 </MediaQuery>
                 <Group>
