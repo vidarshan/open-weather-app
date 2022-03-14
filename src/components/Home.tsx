@@ -110,6 +110,8 @@ const Home = () => {
                               />
                             </Col>
                           );
+                        } else {
+                          return null;
                         }
                       })
                     : weatherType === "daily"
@@ -170,6 +172,8 @@ const Home = () => {
                               />
                             </Col>
                           );
+                        } else {
+                          return null;
                         }
                       })}
                 </Grid>
