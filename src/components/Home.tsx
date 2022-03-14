@@ -14,6 +14,8 @@ import MinutelyCard from "./MinutelyCard";
 const Home = () => {
   const dispatch = useDispatch();
 
+  const selectedUnit = localStorage.getItem("units");
+
   const { weather, loading } = useSelector((state: State) => state.weather);
 
   const { weatherType } = useSelector((state: State) => state.weatherType);
@@ -68,6 +70,14 @@ const Home = () => {
         <Container size={1280}>
           {Object.keys(weather).includes("current") ? (
             <Grid>
+              <Helmet>
+                <title>
+                  {selectedUnit === "metric"
+                    ? `${weather.current.temp}°C`
+                    : `${weather.current.temp} °F`}{" "}
+                  | Open Weather
+                </title>
+              </Helmet>
               <Col span={12}>
                 <WeatherCard
                   timezone={weather.timezone}
@@ -90,7 +100,7 @@ const Home = () => {
                 <Grid>
                   {weatherType === "now"
                     ? Object.keys(weather).includes("minutely") &&
-                      weather.minutely.forEach((item: any, key: number) => {
+                      weather.minutely.map((item: any, key: number) => {
                         if (key % 15 === 0) {
                           return (
                             <Col xs={12} sm={6} md={6} lg={3} xl={3} span={3}>
@@ -139,7 +149,7 @@ const Home = () => {
                         );
                       })
                     : Object.keys(weather).includes("hourly") &&
-                      weather.hourly.forEach((item: any, key: number) => {
+                      weather.hourly.map((item: any, key: number) => {
                         if (key % 6 === 0) {
                           return (
                             <Col xs={12} sm={6} md={6} lg={3} xl={3} span={3}>
