@@ -32,9 +32,9 @@ const Home = () => {
             : "standard"
         );
       });
-    } else {
-      console.log("Not Available");
     }
+
+    //eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -52,6 +52,7 @@ const Home = () => {
         );
       }
     }
+    //eslint-disable-next-line
   }, [geolocation]);
 
   return (
@@ -89,7 +90,7 @@ const Home = () => {
                 <Grid>
                   {weatherType === "now"
                     ? Object.keys(weather).includes("minutely") &&
-                      weather.minutely.map((item: any, key: number) => {
+                      weather.minutely.forEach((item: any, key: number) => {
                         if (key % 15 === 0) {
                           return (
                             <Col xs={12} sm={6} md={6} lg={3} xl={3} span={3}>
@@ -138,7 +139,7 @@ const Home = () => {
                         );
                       })
                     : Object.keys(weather).includes("hourly") &&
-                      weather.hourly.map((item: any, key: number) => {
+                      weather.hourly.forEach((item: any, key: number) => {
                         if (key % 6 === 0) {
                           return (
                             <Col xs={12} sm={6} md={6} lg={3} xl={3} span={3}>

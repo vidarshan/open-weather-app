@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   AiOutlineCalendar,
   AiOutlineCloud,
@@ -8,7 +8,6 @@ import {
   AiOutlineSearch,
 } from "react-icons/ai";
 import { RiSunLine, RiMoonLine } from "react-icons/ri";
-import { HiOutlineLocationMarker } from "react-icons/hi";
 import {
   ActionIcon,
   AppShell,
@@ -34,8 +33,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { actionCreators, State } from "./state";
 import { bindActionCreators } from "redux";
 import { useLocalStorageValue } from "@mantine/hooks";
-import { getWeather } from "./state/actionCreators";
-import { Helmet } from "react-helmet";
 
 function App() {
   const dispatch = useDispatch();
@@ -74,19 +71,6 @@ function App() {
     setOpenSettings(false);
   };
 
-  const handlerRequestLocation = () => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        getWeather(
-          position.coords.latitude,
-          position.coords.longitude,
-          selectedUnit
-        );
-      });
-    } else {
-      console.log("Not Available");
-    }
-  };
   return (
     <ColorSchemeProvider
       colorScheme={colorScheme}

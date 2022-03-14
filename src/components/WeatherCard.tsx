@@ -1,19 +1,9 @@
-import {
-  Card,
-  Col,
-  Divider,
-  Grid,
-  Group,
-  Image,
-  Text,
-  Title,
-} from "@mantine/core";
+import { Card, Col, Grid, Image, Text, Title } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
-import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
-import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
+import { AiOutlineEye } from "react-icons/ai";
+import { RiSunLine } from "react-icons/ri";
 import {
   WiAlien,
-  WiCloud,
   WiCloudy,
   WiCloudyWindy,
   WiHumidity,

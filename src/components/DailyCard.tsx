@@ -1,23 +1,8 @@
-import {
-  Card,
-  Col,
-  Container,
-  Divider,
-  Grid,
-  Group,
-  Image,
-  Text,
-} from "@mantine/core";
+import { Card, Col, Divider, Grid, Group, Image, Text } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
-import { timestampToDateTime, uvIndexToDescription } from "../utils/util";
-import { AiOutlineCloud, AiOutlineEye } from "react-icons/ai";
-import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
+import { timestampToDateTime } from "../utils/util";
 import {
-  WiDayCloudy,
   WiDaySunny,
-  WiDaySunnyOvercast,
-  WiDirectionDown,
-  WiDirectionUp,
   WiDust,
   WiFlood,
   WiHorizon,
@@ -67,7 +52,6 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
   sunset,
   moonrise,
   moonset,
-  moon_phase,
   tempDay,
   tempMin,
   tempMax,
@@ -79,14 +63,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
   feelsLikeNight,
   feelsLikeEve,
   pressure,
-  humidity,
-  dew_point,
-  wind_speed,
-  wind_deg,
-  wind_gust,
   weather,
-  clouds,
-  pop,
   uvi,
 }) => {
   const selectedUnit = localStorage.getItem("units");
