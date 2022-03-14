@@ -1,14 +1,4 @@
 import moment from "moment";
-import {
-  WiMoonAltFull,
-  WiDayCloudy,
-  WiCloudy,
-  WiSleet,
-  WiNightShowers,
-  WiNightLightning,
-  WiSnowflakeCold,
-  WiFog,
-} from "react-icons/wi";
 
 export function timestampToDateTime(timestamp: number, type?: string) {
   return moment
