@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
 import { actionCreators, State } from "../state";
 import WeatherCard from "./WeatherCard";
-
+import { Helmet } from "react-helmet";
 import Spinner from "./Spinner";
 import DailyCard from "./DailyCard";
 import MinutelyCard from "./MinutelyCard";
@@ -56,6 +56,11 @@ const Home = () => {
 
   return (
     <>
+      <Helmet>
+        <title>Open Weather</title>
+        <meta name="description" content="Discover weather" />
+        <meta name="keyword" content="weather, today" />
+      </Helmet>
       {loading ? (
         <Spinner />
       ) : (
@@ -136,7 +141,7 @@ const Home = () => {
                       weather.hourly.map((item: any, key: number) => {
                         if (key % 6 === 0) {
                           return (
-                            <Col span={3}>
+                            <Col xs={12} sm={6} md={6} lg={3} xl={3} span={3}>
                               <HourlyCard
                                 dt={item.dt}
                                 temp={item.temp}

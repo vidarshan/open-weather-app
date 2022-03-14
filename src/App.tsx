@@ -109,7 +109,7 @@ function App() {
         theme={{
           colorScheme,
           breakpoints: {
-            xs: 600,
+            xs: 500,
             sm: 800,
             md: 1000,
             lg: 1200,
