@@ -87,19 +87,6 @@ function App() {
       console.log("Not Available");
     }
   };
-
-  // useEffect(() => {
-  //   if (
-  //     Object.keys(geoLocationResult).includes("data") &&
-  //     geoLocationResult.data.length
-  //   ) {
-  //     getWeather(
-  //       geoLocationResult.data[0].latitude,
-  //       geoLocationResult.data[0].longitude
-  //     );
-  //   }
-  // }, [geoLocationResult]);
-
   return (
     <ColorSchemeProvider
       colorScheme={colorScheme}
@@ -109,7 +96,7 @@ function App() {
         theme={{
           colorScheme,
           breakpoints: {
-            xs: 500,
+            xs: 280,
             sm: 800,
             md: 1000,
             lg: 1200,
@@ -205,7 +192,7 @@ function App() {
                   justifyContent: "space-between",
                 }}
               >
-                <MediaQuery largerThan="xs" styles={{ display: "none" }}>
+                <MediaQuery largerThan="lg" styles={{ display: "none" }}>
                   <Burger
                     opened={opened}
                     onClick={() => setOpened((o) => !o)}
@@ -214,10 +201,10 @@ function App() {
                     mr="xl"
                   />
                 </MediaQuery>
-                <MediaQuery smallerThan="xs" styles={{ display: "none" }}>
+                <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                   <Text weight={600}>Open Weather</Text>
                 </MediaQuery>
-                <MediaQuery smallerThan="xs" styles={{ display: "none" }}>
+                <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
                   <Group>
                     <TextInput
                       placeholder="Search for a location"

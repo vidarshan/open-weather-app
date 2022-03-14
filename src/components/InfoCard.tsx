@@ -20,21 +20,6 @@ const InfoCard: React.FC<PropsWithChildren<IInfoCard>> = ({ items }) => {
             </div>
           );
         })}
-        {/* <div
-          style={{
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-          }}
-        >
-          {icon}
-          <Text weight={600} sx={{ marginLeft: "10px" }}>
-            {title}
-          </Text>
-        </div> */}
-        {/* <Text weight={600} sx={{ marginLeft: "10px" }}>
-          {moment.unix(1646658840).format("hh:mm A")}
-        </Text> */}
       </Group>
     </Card>
   );

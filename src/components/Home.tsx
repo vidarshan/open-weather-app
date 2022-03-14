@@ -92,7 +92,7 @@ const Home = () => {
                       weather.minutely.map((item: any, key: number) => {
                         if (key % 15 === 0) {
                           return (
-                            <Col span={3}>
+                            <Col xs={12} sm={6} md={6} lg={3} xl={3} span={3}>
                               <MinutelyCard
                                 dt={item.dt}
                                 precipitation={item.precipitation}

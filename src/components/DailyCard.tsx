@@ -118,14 +118,14 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
         <Divider variant="solid"></Divider>
       </div>
       <Grid>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={timestampToDateTime(sunrise, "t")}
             title="Sunrise"
             icon={<WiSunrise size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={timestampToDateTime(sunset, "t")}
             title="Sunset"
@@ -133,14 +133,14 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
           />
         </Col>
 
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={timestampToDateTime(moonset, "t")}
             title="Moonset"
             icon={<WiMoonset size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={timestampToDateTime(moonrise, "t")}
             title="Moonrise"
@@ -148,7 +148,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
           />
         </Col>
 
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={uvi}
             title="UV Index"
@@ -156,7 +156,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
           />
         </Col>
 
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={`${pressure} hg`}
             title="Pressure"
@@ -168,7 +168,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
         <Divider variant="solid" label="Temperature"></Divider>
       </div>
       <Grid>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric" ? `${tempMax} °C` : `${tempMax} °F`
@@ -177,7 +177,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
             icon={<WiThermometer size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric" ? `${tempMin} °C` : `${tempMin} °F`
@@ -186,7 +186,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
             icon={<WiThermometerExterior size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric" ? `${tempMorn} °C` : `${tempMorn} °F`
@@ -195,7 +195,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
             icon={<WiHorizonAlt size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric" ? `${tempDay} °C` : `${tempDay} °F`
@@ -204,7 +204,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
             icon={<WiDaySunny size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric" ? `${tempEve} °C` : `${tempEve} °F`
@@ -213,7 +213,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
             icon={<WiHorizon size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric" ? `${tempNight} °C` : `${tempNight} °F`
@@ -228,7 +228,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
         <Divider variant="solid" label="Feels Like"></Divider>
       </div>
       <Grid>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric"
@@ -239,7 +239,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
             icon={<WiHorizonAlt size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric"
@@ -250,7 +250,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
             icon={<WiDaySunny size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric"
@@ -261,7 +261,7 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
             icon={<WiHorizon size={30} />}
           />
         </Col>
-        <Col span={2}>
+        <Col xs={6} sm={4} md={3} lg={2} xl={2} span={2}>
           <ItemCard
             description={
               selectedUnit === "metric"
