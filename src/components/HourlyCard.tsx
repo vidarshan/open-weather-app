@@ -1,7 +1,7 @@
 import { Card, Divider, Group, Text } from "@mantine/core";
 import React, { PropsWithChildren } from "react";
 import { timestampToDateTime } from "../utils/util";
-import { RiCloudWindyLine, RiDropLine, RiSunLine } from "react-icons/ri";
+import { RiCloudWindyLine } from "react-icons/ri";
 interface IHourlyCard {
   dt: number;
   temp: number;
