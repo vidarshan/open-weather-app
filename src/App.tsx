@@ -35,6 +35,8 @@ import { actionCreators, State } from "./state";
 import { bindActionCreators } from "redux";
 import { useLocalStorageValue } from "@mantine/hooks";
 import { getWeather } from "./state/actionCreators";
+import { Helmet } from "react-helmet";
+
 function App() {
   const dispatch = useDispatch();
 
