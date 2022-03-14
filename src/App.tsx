@@ -105,7 +105,19 @@ function App() {
       colorScheme={colorScheme}
       toggleColorScheme={toggleColorScheme}
     >
-      <MantineProvider theme={{ colorScheme }} withGlobalStyles>
+      <MantineProvider
+        theme={{
+          colorScheme,
+          breakpoints: {
+            xs: 600,
+            sm: 800,
+            md: 1000,
+            lg: 1200,
+            xl: 1400,
+          },
+        }}
+        withGlobalStyles
+      >
         <AppShell
           navbarOffsetBreakpoint="sm"
           fixed

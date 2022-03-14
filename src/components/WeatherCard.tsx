@@ -35,7 +35,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
 
   return (
     <Grid sx={{ marginBottom: "1rem" }}>
-      <Col xs={12} sm={12} md={3} span={5}>
+      <Col xs={12} sm={12} md={5} lg={5} xl={5} span={12}>
         <Card
           sx={{
             height: "100%",
@@ -58,7 +58,7 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
           </Text>
         </Card>
       </Col>
-      <Col xs={12} sm={12} md={9} span={7}>
+      <Col xs={12} sm={12} md={7} lg={7} xl={7} span={12}>
         <Card
           sx={{
             height: "100%",
