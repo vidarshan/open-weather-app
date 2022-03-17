@@ -49,11 +49,11 @@ Use Open Weather API to fetch weather and show weather around you.
   
 ## 📄 References
 
-- Get Position Stack Geolocation API key:
+- Get Position Stack Geolocation API key :
 
       https://positionstack.com/
 
-- Get Open Weather API key:
+- Get Open Weather API key :
 
       https://openweathermap.org/api/one-call-api
   
