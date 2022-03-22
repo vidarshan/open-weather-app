@@ -12,12 +12,12 @@
 Use Open Weather API to fetch weather and show weather around you.
 
 ## ✅ Features
-- Get weather by your current location and get
+- Get weather by your current location and get:
   - Current weather fot the next minute.
   - Hourly weather forecast for the next 48 hours.
   - Daily weather forecase for the next 7 days.
 
-- Get weather by your desired location and get
+- Get weather by your desired location and get:
   - Current weather fot the next minute.
   - Hourly weather forecast for the next 48 hours.
   - Daily weather forecase for the next 7 days.
