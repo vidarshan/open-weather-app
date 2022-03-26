@@ -37,7 +37,7 @@ const Home = () => {
     }
 
     //eslint-disable-next-line
-  }, []);
+  }, [selectedUnit]);
 
   useEffect(() => {
     if (Object.keys(geolocation)) {
@@ -73,8 +73,10 @@ const Home = () => {
               <Helmet>
                 <title>
                   {selectedUnit === "metric"
-                    ? `${weather.current.temp}°C`
-                    : `${weather.current.temp} °F`}{" "}
+                    ? ` °C`
+                    : selectedUnit === "standard"
+                    ? ` °K`
+                    : ` °F`}
                   | Open Weather
                 </title>
               </Helmet>

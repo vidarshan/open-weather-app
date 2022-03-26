@@ -43,7 +43,12 @@ const HourlyCard: React.FC<PropsWithChildren<IHourlyCard>> = ({
       <Group sx={{ marginTop: "40px" }} direction="row" position="apart">
         <RiCloudWindyLine color="orange" size={30} />
         <Text size="lg" weight={700}>
-          {temp} {selectedUnit === "metric" ? `°C` : `°F`}
+          {temp}
+          {selectedUnit === "metric"
+            ? ` °C`
+            : selectedUnit === "standard"
+            ? ` °K`
+            : ` °F`}
         </Text>
       </Group>
       <div style={{ marginTop: "20px" }}>

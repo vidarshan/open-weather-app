@@ -85,7 +85,12 @@ const DailyCard: React.FC<PropsWithChildren<IDailyCard>> = ({
       </Group>
       <div style={{ marginTop: "20px" }}>
         <Text size="lg" weight={700}>
-          {tempMax} {selectedUnit === "metric" ? `°C` : `°F`}
+          {tempMax}
+          {selectedUnit === "metric"
+            ? ` °C`
+            : selectedUnit === "standard"
+            ? ` °K`
+            : ` °F`}
         </Text>
         <Text size="sm" weight={600}>
           {weather[0].description}

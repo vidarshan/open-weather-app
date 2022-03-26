@@ -38,7 +38,12 @@ const WeatherCard: React.FC<PropsWithChildren<IWeatherCard>> = ({
             src={`http://openweathermap.org/img/wn/${items.weather[0].icon}@2x.png`}
           />
           <Title order={1}>
-            {items.temp} {selectedUnit === "metric" ? `°C` : `°F`}
+            {items.temp}{" "}
+            {selectedUnit === "metric"
+              ? ` °C`
+              : selectedUnit === "standard"
+              ? ` °K`
+              : ` °F`}
           </Title>
           <Text size="lg" weight={700}>
             {items.weather[0].description}
