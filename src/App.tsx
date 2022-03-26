@@ -271,6 +271,7 @@ function App() {
                     color="blue"
                     size="xs"
                     onClick={() => toggleColorScheme()}
+                    readOnly
                   />
                   <RiMoonLine />
                 </Group>

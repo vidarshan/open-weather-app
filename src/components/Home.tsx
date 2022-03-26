@@ -105,7 +105,15 @@ const Home = () => {
                       weather.minutely.map((item: any, key: number) => {
                         if (key % 15 === 0) {
                           return (
-                            <Col xs={12} sm={6} md={6} lg={3} xl={3} span={3}>
+                            <Col
+                              key={key}
+                              xs={12}
+                              sm={6}
+                              md={6}
+                              lg={3}
+                              xl={3}
+                              span={3}
+                            >
                               <MinutelyCard
                                 dt={item.dt}
                                 precipitation={item.precipitation}
@@ -120,7 +128,7 @@ const Home = () => {
                     ? Object.keys(weather).includes("daily") &&
                       weather.daily.map((item: any, key: number) => {
                         return (
-                          <Col span={12}>
+                          <Col key={key} span={12}>
                             <DailyCard
                               dt={item.dt}
                               sunrise={item.sunrise}
@@ -156,7 +164,15 @@ const Home = () => {
                       weather.hourly.map((item: any, key: number) => {
                         if (key % 6 === 0) {
                           return (
-                            <Col xs={12} sm={6} md={6} lg={3} xl={3} span={3}>
+                            <Col
+                              key={key}
+                              xs={12}
+                              sm={6}
+                              md={6}
+                              lg={3}
+                              xl={3}
+                              span={3}
+                            >
                               <HourlyCard
                                 dt={item.dt}
                                 temp={item.temp}
