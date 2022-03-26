@@ -52,6 +52,7 @@ function App() {
   const [opened, setOpened] = useState(false);
   const [openSettings, setOpenSettings] = useState(false);
   const [selectedUnit, setSelectedUnit] = useState("standard");
+  const [selectedNavigation, setSelectedNavigation] = useState(1);
   const [geolocation, setGeolocation] = useState("");
   const theme = useMantineTheme();
 
@@ -62,7 +63,8 @@ function App() {
     getGeolocation(geolocation);
   };
 
-  const handlerWeatherTypeChange = (wType: string) => {
+  const handlerWeatherTypeChange = (navigationKey: number, wType: string) => {
+    setSelectedNavigation(navigationKey);
     changeWeatherType(wType);
   };
 
@@ -108,10 +110,29 @@ function App() {
                     alignItems: "center",
                     marginBottom: "1rem",
                   }}
-                  onClick={() => handlerWeatherTypeChange("now")}
+                  onClick={() => handlerWeatherTypeChange(1, "now")}
                 >
-                  <AiOutlineCloud size="30" />
-                  <Text weight={600} size="xs">
+                  <AiOutlineCloud
+                    color={
+                      selectedNavigation === 1
+                        ? "#008ACF"
+                        : colorScheme === "dark"
+                        ? "#ffffff"
+                        : "#000000"
+                    }
+                    size="30"
+                  />
+                  <Text
+                    color={
+                      selectedNavigation === 1
+                        ? "#008ACF"
+                        : colorScheme === "dark"
+                        ? "#ffffff"
+                        : "#000000"
+                    }
+                    weight={600}
+                    size="xs"
+                  >
                     Now
                   </Text>
                 </div>
@@ -123,10 +144,29 @@ function App() {
                     alignItems: "center",
                     marginBottom: "1rem",
                   }}
-                  onClick={() => handlerWeatherTypeChange("hourly")}
+                  onClick={() => handlerWeatherTypeChange(2, "hourly")}
                 >
-                  <AiOutlineFieldTime size="30" />
-                  <Text weight={600} size="xs">
+                  <AiOutlineFieldTime
+                    color={
+                      selectedNavigation === 2
+                        ? "#008ACF"
+                        : colorScheme === "dark"
+                        ? "#ffffff"
+                        : "#000000"
+                    }
+                    size="30"
+                  />
+                  <Text
+                    color={
+                      selectedNavigation === 2
+                        ? "#008ACF"
+                        : colorScheme === "dark"
+                        ? "#ffffff"
+                        : "#000000"
+                    }
+                    weight={600}
+                    size="xs"
+                  >
                     Hourly
                   </Text>
                 </div>
@@ -138,10 +178,29 @@ function App() {
                     alignItems: "center",
                     marginBottom: "1rem",
                   }}
-                  onClick={() => handlerWeatherTypeChange("daily")}
+                  onClick={() => handlerWeatherTypeChange(3, "daily")}
                 >
-                  <AiOutlineCalendar size="30" />
-                  <Text weight={600} size="xs">
+                  <AiOutlineCalendar
+                    color={
+                      selectedNavigation === 3
+                        ? "#008ACF"
+                        : colorScheme === "dark"
+                        ? "#ffffff"
+                        : "#000000"
+                    }
+                    size="30"
+                  />
+                  <Text
+                    color={
+                      selectedNavigation === 3
+                        ? "#008ACF"
+                        : colorScheme === "dark"
+                        ? "#ffffff"
+                        : "#000000"
+                    }
+                    weight={600}
+                    size="xs"
+                  >
                     Daily
                   </Text>
                 </div>
