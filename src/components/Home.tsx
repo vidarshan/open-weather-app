@@ -73,10 +73,10 @@ const Home = () => {
               <Helmet>
                 <title>
                   {selectedUnit === "metric"
-                    ? ` °C`
+                    ? `${weather.current.temp} °C `
                     : selectedUnit === "standard"
-                    ? ` °K`
-                    : ` °F`}
+                    ? `${weather.current.temp} °K `
+                    : `${weather.current.temp} °F `}
                   | Open Weather
                 </title>
               </Helmet>
