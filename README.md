@@ -1,46 +1,60 @@
-# Getting Started with Create React App
+<h1 align='center'>⛅ Open Weather App</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h5 align='center'>Search and find weather around you.</h5>
+<h5 align='center'>🌎 https://open-weather-app-iota.vercel.app/</h5>
 
-## Available Scripts
+<div align="center">
+<img src="https://therealsujitk-vercel-badge.vercel.app/?app=open-weather-app" />
+</div>
 
-In the project directory, you can run:
 
-### `npm start`
+## 💡 Objective
+Use Open Weather API to fetch weather and show weather around you.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## ✅ Features
+- Get weather by your current location and get:
+  - Current weather fot the next minute.
+  - Hourly weather forecast for the next 48 hours.
+  - Daily weather forecase for the next 7 days.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Get weather by your desired location and get:
+  - Current weather fot the next minute.
+  - Hourly weather forecast for the next 48 hours.
+  - Daily weather forecase for the next 7 days.
 
-### `npm test`
+##  👨‍💻 Tools and Technologies
+- React JS
+- Mantine
+- Open Weather API (Onecall API)
+- Position Stack Geolocation API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## ⚙️ Setup
 
-### `npm run build`
+- Step 1 : Create `.env` file in the root level.
+- Step 2 : Get your Open Weather API key and Position Stack Geolocation API key from respective websites (refer references section).
+- Step 3 : Add the following keys and their respective values you have obtained.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+        REACT_APP_OPEN_WEATHER_URL=https://api.openweathermap.org/data/2.5/onecall
+        REACT_APP_OPEN_WEATHER_KEY=<your-position-open-weather-api>
+        REACT_APP_POSITION_STACK_GEOLOCATION_KEY=<your-position-stack-geolocation-key>
+        
+- Step 4 :
+  Install packages :
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+        npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Step 5 :
+  Start Project :
+  
+  
+## 📄 References
 
-### `npm run eject`
+- Get Position Stack Geolocation API key :
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+      https://positionstack.com/
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Get Open Weather API key :
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+      https://openweathermap.org/api/one-call-api
+  
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
