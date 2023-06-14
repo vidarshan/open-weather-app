@@ -1,6 +1,9 @@
 <h1 align='center'>⛅ Open Weather App</h1>
 
 <h5 align='center'>Search and find weather around you</h5>
+
+![Open Weather](https://github.com/vidarshan/open-weather-app/assets/48169745/1162ca86-6866-429f-851d-284937a4b72f)
+
 <h5 align='center'>🌎https://beautiful-mandazi-1399bc.netlify.app/</h5>
 
 <div align="center">
